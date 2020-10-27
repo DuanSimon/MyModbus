@@ -1,11 +1,12 @@
 package msg;
 
 import base.ModbusUtils;
+import exception.ModbusTransportException;
 
 abstract public class ModbusMessage {
     protected int slaveId;
 
-    public ModbusMessage(int slaveId) throws ModbusTransportException{
+    public ModbusMessage(int slaveId) throws ModbusTransportException {
         if(slaveId < 0 /* || slaveId > 247 */){
             throw new ModbusTransportException("Invalid slave id", slaveId);
         }

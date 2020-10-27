@@ -66,7 +66,7 @@ abstract public class ModbusMaster extends Modbus{
         }
         if(registerRange == RegisterRange.COIL_STATUS){
             if(!(value instanceof Boolean)){
-                throw new InvalidDataConversionException("Only boolean values can be writen to coils")
+                throw new InvalidDataConversionException("Only boolean values can be writen to coils");
             }
             if(multipleWritesOnly){
                 setValue(new WriteCoilsRequest(slaveId,writeOffset,new boolean[]{((boolean)((Boolean) value).booleanValue())}));

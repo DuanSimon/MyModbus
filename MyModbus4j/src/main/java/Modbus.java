@@ -1,5 +1,6 @@
 import code.RegisterRange;
 import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
+import exception.ModbusTransportException;
 
 public class Modbus {
     public static final int DEFAULT_MAX_READ_BIT_COUNT = 2000;
@@ -24,7 +25,7 @@ public class Modbus {
         return -1;
     }
 
-    public void validateNumberOfRegisters(int registers) throws ModbusTransportException{
+    public void validateNumberOfRegisters(int registers) throws ModbusTransportException {
         if(registers < 1 || registers > maxReadRegisterCount){
             throw new ModbusTransportException("Invalid number of registers: " + registers);
         }

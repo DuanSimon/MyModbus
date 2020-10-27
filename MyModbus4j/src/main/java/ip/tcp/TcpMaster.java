@@ -15,7 +15,7 @@ public class TcpMaster extends ModbusMaster{
     private static final int RETRY_PAUSE_START = 50;
     private static final int RETRY_PAUSE_MAX = 1000;
 
-    private final Log LOG = LoggerFactory.getLog(TcpMaster.class);
+    private final Log LOG = LogFactory.getLog(TcpMaster.class);
     private short nextTransactionId = 0;
     private final IpParameters ipParameters;
     private final boolean keepAlive;

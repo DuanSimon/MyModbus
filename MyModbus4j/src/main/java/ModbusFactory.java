@@ -1,4 +1,5 @@
 import ip.IpParameters;
+import ip.tcp.TcpMaster;
 
 public class ModbusFactory {
     public ModbusMaster createRtuMaster(SerialPortWrapper wrapper){

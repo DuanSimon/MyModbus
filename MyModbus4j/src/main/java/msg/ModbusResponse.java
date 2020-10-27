@@ -1,4 +1,4 @@
 package msg;
 
-abstract class ModbusResponse extends ModbusMesage{
+abstract public class ModbusResponse extends ModbusMessage{
 }

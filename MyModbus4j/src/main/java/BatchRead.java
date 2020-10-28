@@ -1,7 +1,9 @@
-package value;
-
+import base.KeyedModbusLocator;
 import base.ReadFunctionGroup;
+import locator.BaseLocator;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class BatchRead<K> {

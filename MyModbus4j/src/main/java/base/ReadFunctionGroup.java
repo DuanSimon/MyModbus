@@ -2,6 +2,8 @@ package base;
 
 import code.RegisterRange;
 
+import java.util.List;
+
 public class ReadFunctionGroup<K> {
     private final SlaveAndRange slaveAndRange;
     private final int functionCode;

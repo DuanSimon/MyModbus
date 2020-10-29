@@ -1,4 +1,5 @@
 import ip.IpParameters;
+import locator.BaseLocator;
 
 public class MasterTest2 {
     public static void main(String[] args) throws Exception{
@@ -12,7 +13,7 @@ public class MasterTest2 {
         master.setRetries(1);
 
         BatchRead<Integer> batch = new BatchRead<~>();
-        batch.addLocator(0,BaseLocator.holdingRegister(5,80,DataType.TWO_BYTE_INT_SIGNED));
+        batch.addLocator(0, BaseLocator.holdingRegister(5,80,DataType.TWO_BYTE_INT_SIGNED));
         batch.addLocator(1,BaseLocator.holdingRegister(5,202,DataType.EIGHT_BYTE_INT_SIGNED));
         try {
             master.init();

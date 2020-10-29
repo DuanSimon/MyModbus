@@ -1,10 +1,9 @@
 import base.KeyedModbusLocator;
 import base.ReadFunctionGroup;
+import base.SlaveAndRange;
 import locator.BaseLocator;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class BatchRead<K> {
     private final List<KeyedModbusLocator<K>> requestValues = new ArrayList<>();
@@ -66,7 +65,7 @@ public class BatchRead<K> {
             }
             functionList.add(locator);
         }
-        Collection<List<KeyedModbusLocator<K>>> fucntionLocatorLists = slaveRangeBathc.values();
+        Collection<List<KeyedModbusLocator<K>>> functionLocatorLists = slaveRangeBatch.values();
         FunctionLocatorComparator comparator = new FunctionLocatorComparator();
         functionGroups = new ArrayList<>();
         for(List<KeyedModbusLocator<K>> functionLocatorList : functionLocatorLists){
@@ -83,12 +82,12 @@ public class BatchRead<K> {
         int index;
         int endOffset;
         while(locators.size() > 0){
-            functionGroup = new ReadFucntionGroup<>(locator.remove(0));
+            functionGroup = new ReadFucntionGroup<>(locators.remove(0));
             functionGroups.add(functionGroup);
             endOffset = functionGroup.getStartOffset() + maxCount -1;
 
             index = 0;
-            while(locator.size() > index){
+            while(locators.size() > index){
                 locator = locators.get(index);
                 boolean added = false;
                 if(locator.getEndOffset() > endOffset){
@@ -98,9 +97,9 @@ public class BatchRead<K> {
             }
         }
     }
-    class FunctionLocatorComparator implements Comparator<KeyedModbusLocator<K>>{
+    class FunctionLocatorComparator implements Comparator<KeyedModbusLocator<K>> {
         @Override
-        public int compare(KeyedModbusLocatror<K> ml1, KeyedModbusLocator<K> ml2){
+        public int compare(KeyedModbusLocator<K> ml1, KeyedModbusLocator<K> ml2){
             return ml1.getOffset() - ml2.getOffset();
         }
     }

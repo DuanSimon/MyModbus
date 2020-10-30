@@ -1,5 +1,7 @@
 package locator;
 
+import base.ModbusUtils;
+import code.DataType;
 import code.RegisterRange;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
@@ -27,7 +29,7 @@ public class BinaryLocator extends BaseLocator<Boolean>{
     protected void validate(){
         super.validate(1);
         if(!isBinaryRange(range)){
-            ModbusUtils.validaateBit(bit);
+            ModbusUtils.validateBit(bit);
         }
     }
     public int getBit(){

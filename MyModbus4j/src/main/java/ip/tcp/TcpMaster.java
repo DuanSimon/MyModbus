@@ -6,12 +6,14 @@ import ip.IpParameters;
 import msg.ModbusRequest;
 import msg.ModbusResponse;
 import sun.rmi.runtime.Log;
+import sun.rmi.transport.Transport;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.Arrays;
 
-public class TcpMaster extends ModbusMaster{
+public class TcpMaster extends ModbusMaster {
     private static final int RETRY_PAUSE_START = 50;
     private static final int RETRY_PAUSE_MAX = 1000;
 
@@ -143,7 +145,7 @@ public class TcpMaster extends ModbusMaster{
         closeConnection();
 
         int retries = getRetries();
-        int retryPause = TETRY_PAUSE_START;
+        int retryPause = RETRY_PAUSE_START;
         while(true){
             try {
                 socket = new Socket();

@@ -2,6 +2,7 @@ package msg;
 
 import base.ModbusUtils;
 import exception.ModbusTransportException;
+import sero.util.queue.ByteQueue;
 
 abstract public class ModbusMessage {
     protected int slaveId;

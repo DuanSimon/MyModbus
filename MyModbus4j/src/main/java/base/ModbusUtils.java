@@ -3,6 +3,7 @@ package base;
 import code.RegisterRange;
 import exception.ModbusTransportException;
 import msg.ModbusMessage;
+import sero.util.queue.ByteQueue;
 
 public class ModbusUtils {
     public static final int TCP_PORT = 502;

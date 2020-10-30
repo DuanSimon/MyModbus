@@ -6,7 +6,7 @@ public class ModbusFactory {
         return  new RtuMaster(wrapper);
     }
 
-    public ModbusMsater createAsciiMaster(SerialPortWrapper wrapper){
+    public ModbusMaster createAsciiMaster(SerialPortWrapper wrapper){
         return new AsciiMaster(wrapper);
     }
 

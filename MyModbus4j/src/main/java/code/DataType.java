@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import static java.sql.Types.BINARY;
 
 public class DataType {
+    public static final int BINARY = 1;
     public static final int TWO_BYTE_INT_UNSIGNED = 2;
     public static final int TWO_BYTE_INT_SIGNED =3;
     public static final int TWO_BYTE_INT_UNSIGNED_SWAPPED = 22;

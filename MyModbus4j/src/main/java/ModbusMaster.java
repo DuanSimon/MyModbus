@@ -30,7 +30,7 @@ abstract public class ModbusMaster extends Modbus{
     private boolean multipleWritesOnly;
     private int discardDataDelay = 0;
     private BaseIOLog ioLog;
-    private INputStreamEPollWrapper ePoll;
+    private InputStreamEPollWrapper ePoll;
     private final Map<Integer,SlaveProfile> slaveProfiles = new Hashmap<>();
     protected boolean initialized;
 
@@ -186,7 +186,7 @@ abstract public class ModbusMaster extends Modbus{
         this.ioLog = ioLog;
     }
 
-    public INputStreamEPollWrapper getePoll() {
+    public InputStreamEPollWrapper getePoll() {
         return ePoll;
     }
 
@@ -233,7 +233,7 @@ abstract public class ModbusMaster extends Modbus{
         int startOffset = functionGroup.getStartOffset();
         int length = functionGroup.getLength();
 
-        MOdbusRequest request;
+        ModbusRequest request;
         if(functionGroup.getFunctionCode() == FunctionCode.READ_COILS){
             request = new ReadCoilsRequest(slaveId, startOffset, length);
         }else if (functionGroup.getFunctionCode() == FunctionCode.READ_DISCRETE_INPUTS){

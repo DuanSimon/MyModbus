@@ -376,7 +376,7 @@ public class ByteQueue implements Cloneable {
         }
         System.arraycopy(queue, head, buf, pos, firstCopyLen);
         if(firstCopyLen < length){
-            System.arraycopy(queue, 0, buf, pos +firstCopyLen, length - firstCopyLen)
+            System.arraycopy(queue, 0, buf, pos +firstCopyLen, length - firstCopyLen);
         }
         return length;
     }

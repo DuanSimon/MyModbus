@@ -1,7 +1,12 @@
 package locator;
 
+import base.ModbusUtils;
+import base.RangeAndOffset;
+import code.DataType;
 import code.RegisterRange;
 import exception.ModbusTransportException;
+
+import java.nio.charset.Charset;
 
 abstract public class BaseLocator<T> {
     public static BaseLocator<Boolean> coilStatus(int slaveId, int offset){

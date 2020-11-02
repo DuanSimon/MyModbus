@@ -1,6 +1,10 @@
-import code.DataType;
-import ip.IpParameters;
-import locator.BaseLocator;
+import com.simon.modbus4j.code.DataType;
+import com.simon.modbus4j.BatchRead;
+import com.simon.modbus4j.BatchResults;
+import com.simon.modbus4j.ModbusFactory;
+import com.simon.modbus4j.ModbusMaster;
+import com.simon.modbus4j.ip.IpParameters;
+import com.simon.modbus4j.locator.BaseLocator;
 
 public class MasterTest2 {
     public static void main(String[] args) throws Exception{

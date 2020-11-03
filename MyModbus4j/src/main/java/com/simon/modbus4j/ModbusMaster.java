@@ -1,18 +1,25 @@
 package com.simon.modbus4j;
 
 import com.simon.modbus4j.base.ReadFunctionGroup;
+import com.simon.modbus4j.base.SlaveProfile;
+import com.simon.modbus4j.code.DataType;
 import com.simon.modbus4j.code.FunctionCode;
 import com.simon.modbus4j.code.RegisterRange;
-import com.oracle.jrockit.jfr.DataType;
+//import com.oracle.jrockit.jfr.DataType;
+import com.simon.modbus4j.exception.ErrorResponseException;
+import com.simon.modbus4j.exception.InvalidDataConversionException;
+import com.simon.modbus4j.locator.BinaryLocator;
+import com.simon.modbus4j.msg.*;
+import com.simon.modbus4j.sero.epoll.InputStreamEPollWrapper;
+import com.simon.modbus4j.sero.log.BaseIOLog;
 import com.sun.javaws.exceptions.ErrorCodeResponseException;
 import com.simon.modbus4j.exception.ModbusInitException;
 import com.simon.modbus4j.exception.ModbusTransportException;
 import com.simon.modbus4j.locator.BaseLocator;
 import com.simon.modbus4j.sero.messaging.MessageControl;
-import com.simon.modbus4j.msg.ModbusRequest;
-import com.simon.modbus4j.msg.ModbusResponse;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,7 +42,7 @@ abstract public class ModbusMaster extends Modbus {
     private int discardDataDelay = 0;
     private BaseIOLog ioLog;
     private InputStreamEPollWrapper ePoll;
-    private final Map<Integer, SlaveProfile> slaveProfiles = new Hashmap<>();
+    private final Map<Integer, SlaveProfile> slaveProfiles = new HashMap<>();
     protected boolean initialized;
 
     abstract public void init() throws ModbusInitException;
@@ -82,7 +89,7 @@ abstract public class ModbusMaster extends Modbus {
                 setValue(new WriteCoilRequest(slaveId, writeOffset, ((Boolean) value).booleanValue()));
             }
         } else {
-            if (locator.getDataType() = DataType.BINARY) {
+            if (locator.getDataType() == DataType.BINARY) {
                 if (!(value instanceof Boolean)) {
                     throw new InvalidDataConversionException("Only boolean values can be written to coils");
                 }

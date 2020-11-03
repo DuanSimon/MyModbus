@@ -2,6 +2,8 @@ package com.simon.modbus4j;
 
 import com.simon.modbus4j.code.RegisterRange;
 import com.simon.modbus4j.exception.ModbusTransportException;
+import com.simon.modbus4j.sero.messaging.DefaultMessagingExceptionHandler;
+import com.simon.modbus4j.sero.messaging.MessagingExceptionHandler;
 
 public class Modbus {
     public static final int DEFAULT_MAX_READ_BIT_COUNT = 2000;

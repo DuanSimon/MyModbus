@@ -59,7 +59,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2\plugins\maven\lib\maven3" />
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.1\plugins\maven\lib\maven3" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -113,9 +113,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="924" y="282" width="457" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1603885874190" />
-    <state x="895" y="258" key="#通知" timestamp="1603896380101">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state x="895" y="246" key="#通知" timestamp="1604414699505">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="895" y="246" key="#通知/0.0.1536.824/1920.0.1080.1880@0.0.1536.824" timestamp="1604414699505" />
     <state x="895" y="258" key="#通知/0.0.1536.864@0.0.1536.864" timestamp="1603896380101" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1603808684890">
       <screen x="0" y="0" width="1536" height="824" />

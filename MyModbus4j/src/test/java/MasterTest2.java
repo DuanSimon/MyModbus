@@ -3,6 +3,7 @@ import com.simon.modbus4j.BatchRead;
 import com.simon.modbus4j.BatchResults;
 import com.simon.modbus4j.ModbusFactory;
 import com.simon.modbus4j.ModbusMaster;
+import com.simon.modbus4j.exception.ErrorResponseException;
 import com.simon.modbus4j.ip.IpParameters;
 import com.simon.modbus4j.locator.BaseLocator;
 

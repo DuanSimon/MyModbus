@@ -1,6 +1,8 @@
 package com.simon.modbus4j.base;
 
 import com.simon.modbus4j.code.RegisterRange;
+import com.simon.modbus4j.exception.IllegalSlaveIdException;
+import com.simon.modbus4j.exception.ModbusIdException;
 import com.simon.modbus4j.exception.ModbusTransportException;
 import com.simon.modbus4j.msg.ModbusMessage;
 import com.simon.modbus4j.sero.util.queue.ByteQueue;

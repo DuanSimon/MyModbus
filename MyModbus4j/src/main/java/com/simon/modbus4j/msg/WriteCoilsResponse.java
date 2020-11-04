@@ -14,6 +14,10 @@ public class WriteCoilsResponse extends ModbusResponse {
         return FunctionCode.WRITE_COILS;
     }
 
+    WriteCoilsResponse(int slaveId) throws ModbusTransportException{
+        super(slaveId);
+    }
+
     WriteCoilsResponse(int slaveId, int startOffset, int numberOfBits) throws ModbusTransportException{
         super(slaveId);
         this.startOffset = startOffset;

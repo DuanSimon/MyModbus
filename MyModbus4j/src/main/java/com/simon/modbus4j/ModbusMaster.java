@@ -250,9 +250,9 @@ abstract public class ModbusMaster extends Modbus {
         } else if (functionGroup.getFunctionCode() == FunctionCode.READ_DISCRETE_INPUTS) {
             request = new ReadDiscreteInputsRequest(slaveId, startOffset, length);
         } else if (functionGroup.getFunctionCode() == FunctionCode.READ_HOLDING_REGISTERS) {
-            request = new ReadHoldingReqistersRequest(slaveId, startOffset, length);
-        } else if (functionGroup.getFunctionCode == FunctionCode.READ_INPUT_REGISTERS) {
-            request = new ReadInputRegistion(slaveId, startOffset, length);
+            request = new ReadHoldingRegistersRequest(slaveId, startOffset, length);
+        } else if (functionGroup.getFunctionCode() == FunctionCode.READ_INPUT_REGISTERS) {
+            request = new ReadInputRegistersRequest(slaveId, startOffset, length);
         } else {
             throw new RuntimeException("Unsupported function");
         }

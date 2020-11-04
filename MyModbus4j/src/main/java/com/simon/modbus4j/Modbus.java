@@ -28,6 +28,12 @@ public class Modbus {
         return -1;
     }
 
+    public void validateNumberOfBits(int bits) throws ModbusTransportException{
+        if(bits < 1 || bits > maxReadBitCount){
+            throw new ModbusTransportException("Invalid number of bits: " + bits);
+        }
+    }
+
     public void validateNumberOfRegisters(int registers) throws ModbusTransportException {
         if (registers < 1 || registers > maxReadRegisterCount) {
             throw new ModbusTransportException("Invalid number of registers: " + registers);

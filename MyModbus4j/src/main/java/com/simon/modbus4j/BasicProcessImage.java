@@ -3,12 +3,15 @@ package com.simon.modbus4j;
 import com.simon.modbus4j.base.ModbusUtils;
 import com.simon.modbus4j.base.RangeAndOffset;
 import com.simon.modbus4j.code.RegisterRange;
+import com.simon.modbus4j.exception.IllegalDataAddressException;
 import com.simon.modbus4j.exception.ModbusIdException;
 import com.simon.modbus4j.locator.BaseLocator;
 import com.simon.modbus4j.locator.NumericLocator;
 import com.simon.modbus4j.locator.StringLocator;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,11 +37,11 @@ public class BasicProcessImage implements ProcessImage {
         return slaveId;
     }
 
-    public synchronized void addListener(ProgressImageListener l) {
+    public synchronized void addListener(ProcessImageListener l) {
         writeListeners.add(l);
     }
 
-    public synchronized void removeListener(ProgressImageListener l) {
+    public synchronized void removeListener(ProcessImageListener l) {
         writeListeners.remove(l);
     }
 
@@ -110,14 +113,14 @@ public class BasicProcessImage implements ProcessImage {
         }
     }
 
-    public synchronized void setHoldingRegisters(int offset, short[] registers) {
+    public synchronized void setHoldingRegister(int offset, short[] registers) {
         validateOffset(offset);
         for (int i = 0; i < registers.length; i++) {
             setHoldingRegister(offset + i, registers[i]);
         }
     }
 
-    public synchronized void setInputRegisters(int offset, short[] registers) {
+    public synchronized void setInputRegister(int offset, short[] registers) {
         validateOffset(offset);
         for (int i = 0; i < registers.length; i++) {
             setInputRegister(offset + i, registers[i]);
@@ -166,7 +169,7 @@ public class BasicProcessImage implements ProcessImage {
         throw new ModbusIdException("Invalid range to get register: " + range);
     }
 
-    public boolean getHoldingRegisterBit(int offset, int bit) throws IlleglalDataAddressException {
+    public boolean getHoldingRegisterBit(int offset, int bit) throws IllegalDataAddressException {
         validateBit(bit);
         return getBit(getHoldingRegister(offset), bit);
     }
@@ -180,11 +183,11 @@ public class BasicProcessImage implements ProcessImage {
         return getRegister(new NumericLocator(slaveId, range, offset, dataType));
     }
 
-    public String getString(int range, int offset, int dataType, int registerCount) throws IllegalDataAddressexception {
+    public String getString(int range, int offset, int dataType, int registerCount) throws IllegalDataAddressException {
         return getRegister(new StringLocator(slaveId, range, offset, dataType, registerCount, null));
     }
 
-    public String getString(int range, int offset, int dataType, int registerCount, Charset charset) throws IllegalDataAddressExeption {
+    public String getString(int range, int offset, int dataType, int registerCount, Charset charset) throws IllegalDataAddressException {
         return getRegister(new StringLocator(slaveId, range, offset, dataType, registerCount, charset));
     }
 
@@ -220,7 +223,7 @@ public class BasicProcessImage implements ProcessImage {
     }
 
     @Override
-    public synchronized void setWriteCoil(int offset, boolean value) throws IllegalDataAddressException {
+    public synchronized void writeCoil(int offset, boolean value) throws IllegalDataAddressException {
         boolean old = getBoolean(offset, coils);
         setCoil(offset, value);
         for (ProcessImageListener l :
@@ -235,7 +238,7 @@ public class BasicProcessImage implements ProcessImage {
     }
 
     @Override
-    public synchronized boolean setInput(int offset, boolean value) {
+    public synchronized void setInput(int offset, boolean value) {
         validateOffset(offset);
         inputs.put(offset, value);
     }

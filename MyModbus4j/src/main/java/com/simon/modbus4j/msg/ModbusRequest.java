@@ -5,19 +5,21 @@ import com.simon.modbus4j.ProcessImage;
 import com.simon.modbus4j.base.ModbusUtils;
 import com.simon.modbus4j.code.ExceptionCode;
 import com.simon.modbus4j.code.FunctionCode;
+import com.simon.modbus4j.exception.IllegalDataAddressException;
 import com.simon.modbus4j.exception.ModbusTransportException;
 import com.simon.modbus4j.sero.util.queue.ByteQueue;
 
 abstract public class ModbusRequest extends ModbusMessage {
-    public static ModbusRequest createModbusRequest(ByteQueue queue){
+
+    public static ModbusRequest createModbusRequest(ByteQueue queue) throws ModbusTransportException {
         int slaveId = ModbusUtils.popUnsignedByte(queue);
         byte functionCode = queue.pop();
 
         ModbusRequest request = null;
         if(functionCode == FunctionCode.READ_COILS){
-            request = new ReadCoilRequest(slaveId);
+            request = new ReadCoilsRequest(slaveId);
         }else if(functionCode == FunctionCode.READ_DISCRETE_INPUTS){
-            request = new ReadDiscreteInputRegister(slaveId);
+            request = new ReadDiscreteInputsRequest(slaveId);
         }else if(functionCode == FunctionCode.READ_HOLDING_REGISTERS){
             request = new ReadHoldingRegistersRequest(slaveId);
         }else if(functionCode == FunctionCode.READ_INPUT_REGISTERS){

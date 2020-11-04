@@ -1,5 +1,7 @@
 package com.simon.modbus4j;
 
+import com.simon.modbus4j.exception.IllegalDataAddressException;
+
 public interface ProcessImage {
     int getSlaveId();
 
@@ -13,7 +15,7 @@ public interface ProcessImage {
 
     void setInput(int offset, boolean value);
 
-    void getHoldingRegister(int offset) throws IllegalDataAddressException;
+    short getHoldingRegister(int offset) throws IllegalDataAddressException;
 
     void setHoldingRegister(int offset, short value);
 

@@ -8,7 +8,7 @@ import com.simon.modbus4j.exception.ModbusTransportException;
 import com.simon.modbus4j.sero.util.queue.ByteQueue;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 
-public class WriteRegistersRequest extends ModbusResponse {
+public class WriteRegistersRequest extends ModbusRequest {
     private int startOffset;
     private byte[] data;
 
@@ -19,7 +19,7 @@ public class WriteRegistersRequest extends ModbusResponse {
     }
 
     @Override
-    public validate(Modbus modbus) throws ModbusTransportException{
+    public void validate(Modbus modbus) throws ModbusTransportException{
         ModbusUtils.validateOffset(startOffset);
         int registerCount = data.length / 2;
         if(registerCount < 1 || registerCount > modbus.getMaxWriteRegisterCount()){

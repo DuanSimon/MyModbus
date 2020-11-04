@@ -3,7 +3,9 @@ package com.simon.modbus4j.msg;
 import com.simon.modbus4j.base.ModbusUtils;
 import com.simon.modbus4j.code.ExceptionCode;
 import com.simon.modbus4j.code.FunctionCode;
+import com.simon.modbus4j.exception.IllegalFunctionException;
 import com.simon.modbus4j.exception.ModbusTransportException;
+import com.simon.modbus4j.exception.SlaveIdNotEqual;
 import com.simon.modbus4j.sero.util.queue.ByteQueue;
 
 abstract public class ModbusResponse extends ModbusMessage {
@@ -19,14 +21,15 @@ abstract public class ModbusResponse extends ModbusMessage {
             functionCode -= MAX_FUNCTION_CODE;
         }
 
+        ModbusResponse response = null;
         if(functionCode == FunctionCode.READ_COILS){
             response = new ReadCoilsResponse(slaveId);
         }else if(functionCode == FunctionCode.READ_DISCRETE_INPUTS){
             response = new ReadDiscreteInputsResponse(slaveId);
         }else if(functionCode == FunctionCode.READ_HOLDING_REGISTERS){
-            response = new ReadHoldingRestersResponse(slaveId);
+            response = new ReadHoldingRegistersResponse(slaveId);
         }else if(functionCode == FunctionCode.READ_INPUT_REGISTERS){
-            response = new ReadInputeRegistersResponse(slaveId);
+            response = new ReadInputRegistersResponse(slaveId);
         }else if(functionCode == FunctionCode.WRITE_COIL){
             response = new WriteCoilResponse(slaveId);
         }else if(functionCode == FunctionCode.WRITE_REGISTER){
@@ -37,12 +40,12 @@ abstract public class ModbusResponse extends ModbusMessage {
             response = new WriteCoilsResponse(slaveId);
         }else if(functionCode == FunctionCode.WRITE_REGISTERS){
             response = new WriteRegistersResponse(slaveId);
-        }else if(functionCode = FunctionCode.REPORT_SLAVE_ID){
+        }else if(functionCode == FunctionCode.REPORT_SLAVE_ID){
             response = new ReportSlaveIdResponse(slaveId);
-        }else if(functionCode = FunctionCode.WRITE_MASK_REGISTER){
+        }else if(functionCode == FunctionCode.WRITE_MASK_REGISTER){
             response = new WriteMaskRegisterResponse(slaveId);
         }else{
-            throw new IllegalFucntionException(functionCode, slaveId);
+            throw new IllegalFunctionException(functionCode, slaveId);
         }
 
         response.read(queue, isException);

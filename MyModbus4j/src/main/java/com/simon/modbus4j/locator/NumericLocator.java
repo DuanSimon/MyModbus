@@ -2,6 +2,7 @@ package com.simon.modbus4j.locator;
 
 import com.simon.modbus4j.code.DataType;
 import com.simon.modbus4j.code.RegisterRange;
+import com.simon.modbus4j.exception.IllegalDataTypeException;
 import sun.security.util.ArrayUtil;
 
 import java.math.BigDecimal;

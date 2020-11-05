@@ -36,7 +36,7 @@ public class WriteRegisterRequest extends ModbusRequest {
     @Override
     ModbusResponse handleImpl(ProcessImage processImage) throws ModbusTransportException{
         processImage.writeHoldingRegister(writeOffset, (short) writeValue);
-        return new WriteRegisterResponse(slaveId, wirteOffset, writeValue);
+        return new WriteRegisterResponse(slaveId, writeOffset, writeValue);
     }
 
     @Override

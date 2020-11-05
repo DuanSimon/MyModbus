@@ -7,6 +7,7 @@ import com.simon.modbus4j.ip.IpParameters;
 import com.simon.modbus4j.sero.messaging.MessageControl;
 import com.simon.modbus4j.msg.ModbusRequest;
 import com.simon.modbus4j.msg.ModbusResponse;
+import com.simon.modbus4j.sero.messaging.OutgoingRequestMessage;
 import com.simon.modbus4j.sero.messaging.Transport;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

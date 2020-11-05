@@ -5,7 +5,7 @@ import com.simon.modbus4j.exception.ModbusTransportException;
 import com.simon.modbus4j.sero.util.queue.ByteQueue;
 import com.sun.xml.internal.ws.util.StreamUtils;
 
-abstract class ReadResponse extends ModbusResponse {
+abstract public class ReadResponse extends ModbusResponse {
     private byte[] data;
 
     ReadResponse(int slaveId) throws ModbusTransportException{

@@ -1,17 +1,20 @@
 package com.simon.modbus4j;
 
+import com.simon.modbus4j.base.KeyedModbusLocator;
 import com.simon.modbus4j.base.ReadFunctionGroup;
 import com.simon.modbus4j.base.SlaveProfile;
 import com.simon.modbus4j.code.DataType;
+import com.simon.modbus4j.code.ExceptionCode;
 import com.simon.modbus4j.code.FunctionCode;
 import com.simon.modbus4j.code.RegisterRange;
-//import com.oracle.jrockit.jfr.DataType;
 import com.simon.modbus4j.exception.ErrorResponseException;
 import com.simon.modbus4j.exception.InvalidDataConversionException;
 import com.simon.modbus4j.locator.BinaryLocator;
+import com.simon.modbus4j.locator.NumericLocator;
 import com.simon.modbus4j.msg.*;
 import com.simon.modbus4j.sero.epoll.InputStreamEPollWrapper;
 import com.simon.modbus4j.sero.log.BaseIOLog;
+import com.simon.modbus4j.sero.util.ProgressiveTask;
 import com.sun.javaws.exceptions.ErrorCodeResponseException;
 import com.simon.modbus4j.exception.ModbusInitException;
 import com.simon.modbus4j.exception.ModbusTransportException;
@@ -95,7 +98,7 @@ abstract public class ModbusMaster extends Modbus {
                 }
                 setHoldingRegisterBit(slaveId, writeOffset, ((BinaryLocator) locator).getBit(), ((Boolean) value).booleanValue());
             } else {
-                short[] data = locator.valueToShort((T) value);
+                short[] data = locator.valueToShorts((T) value);
                 if (data.length == 1 && !multipleWritesOnly) {
                     setValue(new WriteRegisterRequest(slaveId, writeOffset, data[0]));
                 } else {
@@ -201,7 +204,7 @@ abstract public class ModbusMaster extends Modbus {
         return ePoll;
     }
 
-    public void setePoll(INputStreamEPollWrapper ePoll) {
+    public void setePoll(InputStreamEPollWrapper ePoll) {
         this.ePoll = ePoll;
     }
 
@@ -272,18 +275,28 @@ abstract public class ModbusMaster extends Modbus {
 
         byte[] data = null;
         if (!errorsInResults && response.isException()) {
-            results.addResult(locator.getKey(), new ExceptionResult(reponse.getExcepionCode()));
-        } else {
-            try {
-                results.addResult(locator.getKey(), locator.bytesToValue(data, startOffset));
-            } catch (RuntimeException e) {
-                throw new RuntimeException("Result conversion exception. data = " + ArrayUtils.toHexString(data)
-                        + ", startOffset = " + startOffset
-                        + ", locator = " + locator
-                        + ", functionGroup.functionCode = " + fucntionGroup.getFunctionCode()
-                        + ", functionGroup.startOffset = " + startOffset
-                        + ", functionGroup.length = " + length, e
-                );
+            throw new ErrorResponseException(request, response);
+            //results.addResult(locator.getKey(), new ExceptionResult(response.getExcepionCode()));
+        } else if(!response.isException()) {
+            data = response.getData();
+        }
+
+        for (KeyedModbusLocator<K> locator :
+                functionGroup.getLocators()) {
+            if (errorsInResults && response.isException()) {
+                results.addResult(locator.getKey(), new ExceptionResult(response.getExceptionCode()));
+            }else {
+                try {
+                    results.addResult(locator.getKey(), locator.bytesToValue(data, startOffset));
+                } catch (RuntimeException e) {
+                    throw new RuntimeException("Result conversion exception. data = " + ArrayUtils.toHexString(data)
+                            + ", startOffset = " + startOffset
+                            + ", locator = " + locator
+                            + ", functionGroup.functionCode = " + functionGroup.getFunctionCode()
+                            + ", functionGroup.startOffset = " + startOffset
+                            + ", functionGroup.length = " + length, e
+                    );
+                }
             }
         }
     }

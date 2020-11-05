@@ -1,5 +1,7 @@
 package com.simon.modbus4j;
 
-public interface NodeScanListener extends ProgressiveTastListener {
+import com.simon.modbus4j.sero.util.ProgressiveTaskListener;
+
+public interface NodeScanListener extends ProgressiveTaskListener {
     void nodeFound(int nodeNumber);
 }

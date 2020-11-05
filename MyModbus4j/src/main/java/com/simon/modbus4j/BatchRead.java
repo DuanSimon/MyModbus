@@ -37,15 +37,15 @@ public class BatchRead<K> {
         this.errorsInResults = errorsInResults;
     }
 
-    public boolean isExcepitionsInResults() {
+    public boolean isExceptionsInResults() {
         return excepitionsInResults;
     }
 
-    public void setExcepitionsInResults(boolean excepitionsInResults) {
+    public void setExceptionsInResults(boolean excepitionsInResults) {
         this.excepitionsInResults = excepitionsInResults;
     }
 
-    public List<ReadFunctionGroup<K>> getFunctionGroups(ModbusMaster master) {
+    public List<ReadFunctionGroup<K>> getReadFunctionGroups(ModbusMaster master) {
         if (functionGroups == null) {
             doPartition(master);
         }
@@ -59,6 +59,10 @@ public class BatchRead<K> {
     private void addLocator(KeyedModbusLocator<K> locator) {
         requestValues.add(locator);
         functionGroups = null;
+    }
+
+    public boolean isCancel(){
+        return cancel;
     }
 
     public void setCancel(boolean cancel) {

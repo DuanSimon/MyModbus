@@ -1,7 +1,9 @@
 package com.simon.modbus4j.sero.messaging;
 
 
+import com.simon.modbus4j.sero.log.BaseIOLog;
 import com.simon.modbus4j.sero.messaging.DataConsumer;
+import com.simon.modbus4j.sero.util.queue.ByteQueue;
 
 import java.io.IOException;
 
@@ -14,7 +16,7 @@ public class MessageControl implements DataConsumer {
     private Transport transport;
     private MessageParser messageParser;
     private RequestHandler requestHandler;
-    private WaitingRoomKeyFactory;
+    private WaitingRoomKeyFactory waitingRoomKeyFactory;
     private MessagingExceptionHandler exceptionHandler = new DafaultMessagingExceptionHandler();
     private int retries = DEFAULT_RETRIES;
     private int timeout = DEFAULT_TIMEOUT;
@@ -31,7 +33,8 @@ public class MessageControl implements DataConsumer {
         this.transport = transport;
         this.messageParser = messageParser;
         this.requestHandler = handler;
-        this.waitingRoomKeyFactory(waitingRoomKeyFactory);
+        this.waitingRoomKeyFactory = waitingRoomKeyFactory;
+        waitingRoom.setKeyFactory(waitingRoomKeyFactory);
         transport.setConsumer(this);
     }
 
@@ -87,11 +90,11 @@ public class MessageControl implements DataConsumer {
         return timeSource;
     }
 
-    public IncomingRespongseMessage send(OutgoingRequestMessage request) throws IOException {
+    public IncomingResponseMessage send(OutgoingRequestMessage request) throws IOException {
         return send(request, timeout, retries);
     }
 
-    public IncomingResponseMessage send(OutgoingRequestMessage, int timeout, int retries) throws IOException {
+    public IncomingResponseMessage send(OutgoingRequestMessage request, int timeout, int retries) throws IOException {
         byte[] data = request.getMessageData();
         if (DEBUG) {
             System.out.println("MessagingControl.send: " + StreamUtils.dumpHex(data));

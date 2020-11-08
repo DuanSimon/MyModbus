@@ -30,20 +30,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc4a7f44-6aa2-4734-99bf-3d7697c73713" name="默认的" comment="补全msg和exception">
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/IpMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/OutgoingMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/OutgoingRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/OutgoingResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/util/ProgressiveTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/util/ProgressiveTaskListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/IncomingMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/IncomingRequestMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/IncomingResponseMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/MessageParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/RequestHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/WaitingRoom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/WaitingRoomKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/WaitingRoomKeyFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/BatchRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/BatchRead.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ModbusFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ModbusFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ModbusMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ModbusMaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/NodeScanListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/NodeScanListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/tcp/TcpMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/tcp/TcpMaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/msg/ReadResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/msg/ReadResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/MessageControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/MessageControl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +51,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -64,7 +62,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2\plugins\maven\lib\maven3" />
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.1\plugins\maven\lib\maven3" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -79,7 +77,21 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunManager">
+    <configuration name="MasterTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MasterTest2" />
+      <module name="MyModbus4j" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.MasterTest2" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -147,6 +159,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="958" y="118" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1603982599049" />
+    <state x="449" y="147" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1604796832622">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="449" y="147" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824/1920.0.1080.1880@0.0.1536.824" timestamp="1604796832622" />
     <state x="924" y="282" width="457" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1603885874190">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -165,10 +181,10 @@
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603808684890" />
     <state x="686" y="211" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604480981382" />
-    <state x="191" y="0" key="SettingsEditor" timestamp="1604483537709">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="153" y="0" key="SettingsEditor" timestamp="1604797226912">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="153" y="0" key="SettingsEditor/0.0.1536.824/1920.0.1080.1880@0.0.1536.824" timestamp="1604112766345" />
+    <state x="153" y="0" key="SettingsEditor/0.0.1536.824/1920.0.1080.1880@0.0.1536.824" timestamp="1604797226912" />
     <state x="153" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603886111900" />
     <state x="153" y="0" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1603891501283" />
     <state x="191" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604483537709" />
@@ -176,9 +192,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604483547277" />
-    <state x="582" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603980923567">
+    <state x="582" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604796770075">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="582" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/1920.0.1080.1880@0.0.1536.824" timestamp="1604796770075" />
     <state x="582" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1603980923567" />
     <state x="1015" y="162" width="840" height="817" key="search.everywhere.popup" timestamp="1604570795520">
       <screen x="0" y="0" width="1920" height="1040" />

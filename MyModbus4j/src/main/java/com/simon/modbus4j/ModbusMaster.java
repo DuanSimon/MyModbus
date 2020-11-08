@@ -14,6 +14,7 @@ import com.simon.modbus4j.locator.NumericLocator;
 import com.simon.modbus4j.msg.*;
 import com.simon.modbus4j.sero.epoll.InputStreamEPollWrapper;
 import com.simon.modbus4j.sero.log.BaseIOLog;
+import com.simon.modbus4j.sero.util.ArrayUtils;
 import com.simon.modbus4j.sero.util.ProgressiveTask;
 import com.sun.javaws.exceptions.ErrorCodeResponseException;
 import com.simon.modbus4j.exception.ModbusInitException;
@@ -74,7 +75,7 @@ abstract public class ModbusMaster extends Modbus {
         return (T) result.getValue("");
     }
 
-    public <T> void setValue(BaseLocator<T> locator, Object value) throws ModbusTransportException, ErrorCodeResponseException {
+    public <T> void setValue(BaseLocator<T> locator, Object value) throws ModbusTransportException, ErrorResponseException {
         int slaveId = locator.getSlaveId();
         int registerRange = locator.getRange();
         int writeOffset = locator.getOffset();
@@ -87,7 +88,7 @@ abstract public class ModbusMaster extends Modbus {
                 throw new InvalidDataConversionException("Only boolean values can be writen to coils");
             }
             if (multipleWritesOnly) {
-                setValue(new WriteCoilsRequest(slaveId, writeOffset, new boolean[]{((boolean) ((Boolean) value).booleanValue())}));
+                setValue(new WriteCoilsRequest(slaveId, writeOffset, new boolean[]{((Boolean) value).booleanValue()}));
             } else {
                 setValue(new WriteCoilRequest(slaveId, writeOffset, ((Boolean) value).booleanValue()));
             }
@@ -312,7 +313,7 @@ abstract public class ModbusMaster extends Modbus {
     }
 
     private void setHoldingRegisterBit(int slaveId, int writeOffset, int bit, boolean value)
-            throws ModbusTransportException, ErrorCodeResponseException {
+            throws ModbusTransportException, ErrorResponseException {
         SlaveProfile sp = getSlaveProfile(slaveId);
         if (sp.getWriteMaskRegister()) {
             WriteMaskRegisterRequest request = new WriteMaskRegisterRequest(slaveId, writeOffset);
@@ -327,7 +328,7 @@ abstract public class ModbusMaster extends Modbus {
             if (response.getExceptionCode() == ExceptionCode.ILLEGAL_FUNCTION) {
                 sp.setWriteMaskRegister(false);
             } else {
-                throw new ErrorCodeResponseException(request, response);
+                throw new ErrorResponseException(request, response);
             }
 
         }

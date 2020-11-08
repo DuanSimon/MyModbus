@@ -7,7 +7,7 @@ import com.simon.modbus4j.exception.ModbusTransportException;
 import com.simon.modbus4j.ip.IpParameters;
 import com.simon.modbus4j.ip.tcp.TcpMaster;
 import com.simon.modbus4j.ip.tcp.TcpSlave;
-import com.simon.modbus4j.msg.ModbusRequest;
+import com.simon.modbus4j.msg.*;
 
 public class ModbusFactory {
     public ModbusMaster createRtuMaster(SerialPortWrapper wrapper) {
@@ -57,6 +57,6 @@ public class ModbusFactory {
         if (range == RegisterRange.INPUT_REGISTER) {
             return new ReadInputRegistersRequest(slaveId, offset, length);
         }
-        return new ReadHodingRegistersRequest(slaveId, offset, length);
+        return new ReadHoldingRegistersRequest(slaveId, offset, length);
     }
 }

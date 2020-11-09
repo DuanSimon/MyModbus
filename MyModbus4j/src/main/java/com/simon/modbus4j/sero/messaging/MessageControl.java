@@ -3,6 +3,8 @@ package com.simon.modbus4j.sero.messaging;
 
 import com.simon.modbus4j.sero.log.BaseIOLog;
 import com.simon.modbus4j.sero.messaging.DataConsumer;
+import com.simon.modbus4j.sero.timer.SystemTimeSource;
+import com.simon.modbus4j.sero.timer.TimeSource;
 import com.simon.modbus4j.sero.util.queue.ByteQueue;
 
 import java.io.IOException;
@@ -17,7 +19,7 @@ public class MessageControl implements DataConsumer {
     private MessageParser messageParser;
     private RequestHandler requestHandler;
     private WaitingRoomKeyFactory waitingRoomKeyFactory;
-    private MessagingExceptionHandler exceptionHandler = new DafaultMessagingExceptionHandler();
+    private MessagingExceptionHandler exceptionHandler = new DefaultMessagingExceptionHandler();
     private int retries = DEFAULT_RETRIES;
     private int timeout = DEFAULT_TIMEOUT;
     private int discardDataDelay = 0;
@@ -70,7 +72,7 @@ public class MessageControl implements DataConsumer {
         this.timeout = timeout;
     }
 
-    public void getDiscardDataDelay() {
+    public int getDiscardDataDelay() {
         return discardDataDelay;
     }
 
@@ -158,7 +160,7 @@ public class MessageControl implements DataConsumer {
                     break;
                 }
 
-                if (message instanceof IncomingRequstMessage) {
+                if (message instanceof IncomingRequestMessage) {
                     if (requestHandler != null) {
                         OutgoingResponseMessage response = requestHandler.handlerRequest((IncomingRequestMessage) message);
                         if (response != null) {

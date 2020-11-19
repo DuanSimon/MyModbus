@@ -30,18 +30,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc4a7f44-6aa2-4734-99bf-3d7697c73713" name="默认的" comment="补全msg和exception">
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/IncomingMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/IncomingRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/IncomingResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/MessageParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/RequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/WaitingRoom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/WaitingRoomKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/WaitingRoomKeyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/BaseRequestHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/IpMessageResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapRequestHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapWaitingRoomKeyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/listener/TcpListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaMessageParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaMessageRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaMessageResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaRequestHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaWaitingRoomKeyFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ModbusFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ModbusFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ModbusMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ModbusMaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/MessageControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/MessageControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/tcp/TcpMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/tcp/TcpMaster.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +67,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.1\plugins\maven\lib\maven3" />
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2\plugins\maven\lib\maven3" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -197,12 +202,12 @@
     </state>
     <state x="582" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/1920.0.1080.1880@0.0.1536.824" timestamp="1604796770075" />
     <state x="582" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1603980923567" />
-    <state x="1015" y="162" width="840" height="817" key="search.everywhere.popup" timestamp="1604570795520">
+    <state x="1015" y="162" width="840" height="817" key="search.everywhere.popup" timestamp="1605753330621">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="814" y="176" width="672" height="647" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1603982892744" />
     <state x="814" y="185" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1603887056046" />
-    <state x="1015" y="162" width="840" height="817" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604570795520" />
+    <state x="1015" y="162" width="840" height="817" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605753330621" />
     <state x="491" y="324" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1604224419663">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

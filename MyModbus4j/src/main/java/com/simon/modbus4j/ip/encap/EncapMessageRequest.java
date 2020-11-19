@@ -2,6 +2,7 @@ package com.simon.modbus4j.ip.encap;
 
 import com.simon.modbus4j.exception.ModbusTransportException;
 import com.simon.modbus4j.msg.ModbusRequest;
+import com.simon.modbus4j.sero.messaging.IncomingRequestMessage;
 import com.simon.modbus4j.sero.messaging.OutgoingRequestMessage;
 import com.simon.modbus4j.sero.util.queue.ByteQueue;
 

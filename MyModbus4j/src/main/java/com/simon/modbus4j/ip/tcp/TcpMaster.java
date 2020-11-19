@@ -4,6 +4,8 @@ import com.simon.modbus4j.ModbusMaster;
 import com.simon.modbus4j.exception.ModbusInitException;
 import com.simon.modbus4j.exception.ModbusTransportException;
 import com.simon.modbus4j.ip.IpParameters;
+import com.simon.modbus4j.ip.encap.EncapMessageRequest;
+import com.simon.modbus4j.ip.xa.XaMessageRequest;
 import com.simon.modbus4j.sero.messaging.MessageControl;
 import com.simon.modbus4j.msg.ModbusRequest;
 import com.simon.modbus4j.msg.ModbusResponse;

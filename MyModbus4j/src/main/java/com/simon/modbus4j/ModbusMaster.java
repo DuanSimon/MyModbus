@@ -16,7 +16,6 @@ import com.simon.modbus4j.sero.epoll.InputStreamEPollWrapper;
 import com.simon.modbus4j.sero.log.BaseIOLog;
 import com.simon.modbus4j.sero.util.ArrayUtils;
 import com.simon.modbus4j.sero.util.ProgressiveTask;
-import com.sun.javaws.exceptions.ErrorCodeResponseException;
 import com.simon.modbus4j.exception.ModbusInitException;
 import com.simon.modbus4j.exception.ModbusTransportException;
 import com.simon.modbus4j.locator.BaseLocator;

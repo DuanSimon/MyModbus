@@ -29,24 +29,21 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc4a7f44-6aa2-4734-99bf-3d7697c73713" name="默认的" comment="补全msg和exception">
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/BaseRequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/IpMessageResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapRequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapWaitingRoomKeyFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/listener/TcpListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaMessageParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaMessageRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaMessageResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaRequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaWaitingRoomKeyFactory.java" afterDir="false" />
+    <list default="true" id="fc4a7f44-6aa2-4734-99bf-3d7697c73713" name="默认的" comment="补全TcpListener">
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/udp/UdpMaster.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/udp/UdpSlave.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/io/LineHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/io/NullWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/log/IOLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/log/RollingIOLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/log/SimpleLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/EpollStreamTransport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/EpollStreamTransportCharSpaced.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/InputStreamListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/StreamTransport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/StreamTransportCharSpaced.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/messaging/TestableTransport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ModbusMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ModbusMaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/tcp/TcpMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/tcp/TcpMaster.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604481607125</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="补全TcpListener">
+      <created>1605779670079</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1605779670079</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -157,7 +161,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="DataType" />
     <MESSAGE value="补全msg和exception" />
-    <option name="LAST_COMMIT_MESSAGE" value="补全msg和exception" />
+    <MESSAGE value="补全TcpListener" />
+    <option name="LAST_COMMIT_MESSAGE" value="补全TcpListener" />
   </component>
   <component name="WindowStateProjectService">
     <state x="958" y="118" key="#com.intellij.ide.util.MemberChooser" timestamp="1603982599049">
@@ -193,10 +198,10 @@
     <state x="153" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603886111900" />
     <state x="153" y="0" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1603891501283" />
     <state x="191" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604483537709" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1604483547277">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1605779674148">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604483547277" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605779674148" />
     <state x="582" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604796770075">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

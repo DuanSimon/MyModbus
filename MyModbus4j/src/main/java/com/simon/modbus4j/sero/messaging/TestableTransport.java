@@ -2,6 +2,7 @@ package com.simon.modbus4j.sero.messaging;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 
 public class TestableTransport extends StreamTransport {
@@ -15,12 +16,12 @@ public class TestableTransport extends StreamTransport {
     }
 
     static class TestableBufferedInputStream extends BufferedInputStream{
-        public TestableBufferedInputStream(Inputstream in){
+        public TestableBufferedInputStream(InputStream in){
             super(in);
         }
 
         @Override
-        private synchronized int read(byte[] buf) throws IOException{
+        public synchronized int read(byte[] buf) throws IOException{
             return super.read(buf);
         }
 

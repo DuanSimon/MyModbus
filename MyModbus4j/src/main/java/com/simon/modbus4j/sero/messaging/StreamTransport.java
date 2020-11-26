@@ -1,6 +1,8 @@
 package com.simon.modbus4j.sero.messaging;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 public class StreamTransport implements Transport, Runnable {
     protected OutputStream out;
@@ -39,7 +41,7 @@ public class StreamTransport implements Transport, Runnable {
         listener = null;
     }
 
-    public void write(byte[] data) throws IOException{
+    public void write(byte[] data) throws IOException {
         out.write(data);
         out.flush();
     }

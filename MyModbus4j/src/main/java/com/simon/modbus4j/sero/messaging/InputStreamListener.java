@@ -2,6 +2,9 @@ package com.simon.modbus4j.sero.messaging;
 
 import com.sun.deploy.util.StringUtils;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 public class InputStreamListener implements Runnable {
     private static final int DEFAULT_READ_DELAY = 50;
 

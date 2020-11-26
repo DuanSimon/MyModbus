@@ -7,6 +7,7 @@ import com.simon.modbus4j.exception.ModbusTransportException;
 import com.simon.modbus4j.ip.IpParameters;
 import com.simon.modbus4j.ip.tcp.TcpMaster;
 import com.simon.modbus4j.ip.tcp.TcpSlave;
+import com.simon.modbus4j.ip.udp.UdpSlave;
 import com.simon.modbus4j.msg.*;
 
 public class ModbusFactory {

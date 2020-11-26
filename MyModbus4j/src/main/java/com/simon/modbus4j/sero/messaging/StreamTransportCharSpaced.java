@@ -1,5 +1,9 @@
 package com.simon.modbus4j.sero.messaging;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 public class StreamTransportCharSpaced extends StreamTransport {
 
     private final long charSpacing;
@@ -10,7 +14,7 @@ public class StreamTransportCharSpaced extends StreamTransport {
     }
 
     @Override
-    public void write(byte[] data) throws IOException{
+    public void write(byte[] data) throws IOException {
         try {
             long waited = 0,writeStart,writeEnd,WaitRemaining;
             for (byte b :
@@ -21,7 +25,7 @@ public class StreamTransportCharSpaced extends StreamTransport {
                 waited = writeEnd - writeStart;
                 if(waited < this.charSpacing){
                     waitRemaining = this.charSpacing - waited;
-                    Thread.sleep(waitRemainign / 1000000, (int)(waitRemaining % 1000000));
+                    Thread.sleep(waitRemaining / 1000000, (int)(waitRemaining % 1000000));
                 }
             }
         }catch (Exception e){

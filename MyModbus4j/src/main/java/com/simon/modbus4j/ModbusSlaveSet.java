@@ -3,6 +3,7 @@ package com.simon.modbus4j;
 import com.simon.modbus4j.exception.ModbusInitException;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;

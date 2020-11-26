@@ -1,13 +1,25 @@
 package com.simon.modbus4j.ip.listener;
 
+import com.simon.modbus4j.ModbusMaster;
 import com.simon.modbus4j.base.BaseMessageParser;
 import com.simon.modbus4j.exception.ModbusInitException;
 import com.simon.modbus4j.exception.ModbusTransportException;
 import com.simon.modbus4j.ip.IpMessageResponse;
 import com.simon.modbus4j.ip.IpParameters;
+import com.simon.modbus4j.ip.encap.EncapMessageParser;
 import com.simon.modbus4j.ip.encap.EncapWaitingRoomKeyFactory;
+import com.simon.modbus4j.ip.xa.XaMessageParser;
+import com.simon.modbus4j.ip.xa.XaWaitingRoomKeyFactory;
+import com.simon.modbus4j.sero.messaging.*;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
+import java.io.IOException;
+import java.net.BindException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.net.SocketTimeoutException;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
@@ -231,7 +243,7 @@ public class TcpListener extends ModbusMaster {
             }
         }
 
-        private void acceptConnection() throws IOExcepetion, BindException{
+        private void acceptConnection() throws IOException, BindException {
             while(true){
                 try {
                     Thread.sleep(500);

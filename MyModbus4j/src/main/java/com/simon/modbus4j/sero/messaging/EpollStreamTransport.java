@@ -1,7 +1,10 @@
 package com.simon.modbus4j.sero.messaging;
 
+import com.simon.modbus4j.sero.epoll.InputStreamEPollWrapper;
 import com.simon.modbus4j.sero.epoll.Modbus4JInputStreamCallback;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 
 public class EpollStreamTransport implements Transport {

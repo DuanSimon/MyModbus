@@ -234,7 +234,7 @@ abstract public class ModbusMaster extends Modbus {
         return conn;
     }
 
-    protected void closeMesdageControl(MessageControl conn) {
+    protected void closeMessageControl(MessageControl conn) {
         if (conn != null) {
             conn.close();
         }

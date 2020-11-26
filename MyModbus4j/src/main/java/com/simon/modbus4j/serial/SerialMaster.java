@@ -3,8 +3,11 @@ package com.simon.modbus4j.serial;
 import com.simon.modbus4j.ModbusMaster;
 import com.simon.modbus4j.exception.ModbusInitException;
 import com.simon.modbus4j.sero.messaging.EpollStreamTransport;
+import com.simon.modbus4j.sero.messaging.MessageControl;
 import com.simon.modbus4j.sero.messaging.StreamTransport;
 import com.simon.modbus4j.sero.messaging.Transport;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 abstract public class SerialMaster extends ModbusMaster {
     private static final int RETRY_PAUSE_START = 50;
@@ -37,7 +40,7 @@ abstract public class SerialMaster extends ModbusMaster {
 
     protected void openConnection(MessageControl toClose) throws Exception{
         //Make sure any existing connection is closed.
-        cloneConnection(toClose);
+        closeConnection(toClose);
 
         //Try 'retries' times to get the socket open.
         int retries = getRetries();

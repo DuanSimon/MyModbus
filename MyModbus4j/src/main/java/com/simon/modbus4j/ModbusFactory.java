@@ -9,6 +9,7 @@ import com.simon.modbus4j.ip.tcp.TcpMaster;
 import com.simon.modbus4j.ip.tcp.TcpSlave;
 import com.simon.modbus4j.ip.udp.UdpSlave;
 import com.simon.modbus4j.msg.*;
+import com.simon.modbus4j.serial.SerialPortWrapper;
 
 public class ModbusFactory {
     public ModbusMaster createRtuMaster(SerialPortWrapper wrapper) {

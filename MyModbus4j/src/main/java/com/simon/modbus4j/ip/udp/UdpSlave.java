@@ -101,7 +101,7 @@ public class UdpSlave extends ModbusSlaveSet {
 
                 //Create a response packet.
                 byte[] responseData = response.getMessageData();
-                DatagramPacket resonsePacket = new DatagramPacket(responseData, responsedata.length, requestPacket.getAddress(), requestPacket.getPort());
+                DatagramPacket responsePacket = new DatagramPacket(responseData, responseData.length, requestPacket.getAddress(), requestPacket.getPort());
 
                 //Send the response back.
                 datagramSocket.send(responsePacket);

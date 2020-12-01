@@ -1,5 +1,7 @@
 package com.simon.modbus4j.base;
 
+import com.simon.modbus4j.sero.messaging.IncomingMessage;
+import com.simon.modbus4j.sero.messaging.MessageParser;
 import com.simon.modbus4j.sero.util.queue.ByteQueue;
 
 abstract public class BaseMessageParser implements MessageParser {
@@ -10,9 +12,9 @@ abstract public class BaseMessageParser implements MessageParser {
     }
 
     @Override
-    public IncomingMessage parseMesssage(ByteQueue queue) throws Exception {
+    public IncomingMessage parseMessage(ByteQueue queue) throws Exception {
         try {
-            return parseMesssage(queue);
+            return parseMessage(queue);
         } catch (ArrayIndexOutOfBoundsException e) {
             return null;
         }

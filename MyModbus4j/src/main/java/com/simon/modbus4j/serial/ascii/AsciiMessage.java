@@ -1,6 +1,7 @@
 package com.simon.modbus4j.serial.ascii;
 
 import com.simon.modbus4j.exception.ModbusTransportException;
+import com.simon.modbus4j.msg.ModbusMessage;
 import com.simon.modbus4j.serial.SerialMessage;
 import com.simon.modbus4j.sero.util.queue.ByteQueue;
 

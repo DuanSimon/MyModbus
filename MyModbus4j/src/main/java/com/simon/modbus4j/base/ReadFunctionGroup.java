@@ -2,6 +2,7 @@ package com.simon.modbus4j.base;
 
 import com.simon.modbus4j.code.RegisterRange;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReadFunctionGroup<K> {

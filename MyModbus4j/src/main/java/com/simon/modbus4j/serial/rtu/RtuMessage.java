@@ -1,6 +1,8 @@
 package com.simon.modbus4j.serial.rtu;
 
+import com.simon.modbus4j.base.ModbusUtils;
 import com.simon.modbus4j.msg.ModbusMessage;
+import com.simon.modbus4j.serial.SerialMessage;
 import com.simon.modbus4j.sero.util.queue.ByteQueue;
 
 public class RtuMessage extends SerialMessage {

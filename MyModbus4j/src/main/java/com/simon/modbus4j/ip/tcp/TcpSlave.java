@@ -2,13 +2,20 @@ package com.simon.modbus4j.ip.tcp;
 
 import com.simon.modbus4j.ModbusSlaveSet;
 import com.simon.modbus4j.base.BaseMessageParser;
+import com.simon.modbus4j.base.BaseRequestHandler;
 import com.simon.modbus4j.base.ModbusUtils;
 import com.simon.modbus4j.exception.ModbusInitException;
+import com.simon.modbus4j.ip.encap.EncapMessageParser;
+import com.simon.modbus4j.ip.encap.EncapRequestHandler;
+import com.simon.modbus4j.ip.xa.XaMessageParser;
+import com.simon.modbus4j.ip.xa.XaRequestHandler;
 import com.simon.modbus4j.sero.messaging.MessageControl;
+import com.simon.modbus4j.sero.messaging.TestableTransport;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -96,7 +103,7 @@ public class TcpSlave extends ModbusSlaveSet {
                 messageParser = new EncapMessageParser(false);
                 requestHandler = new EncapRequestHandler(TcpSlave.this);
             } else {
-                messageParser = new XamessageParser(false);
+                messageParser = new XaMessageParser(false);
                 requestHandler = new XaRequestHandler(TcpSlave.this);
             }
 

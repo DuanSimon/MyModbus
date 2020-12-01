@@ -1,4 +1,4 @@
-package com.simon.modbus4j.ip.encap;
+package com.simon.modbus4j.serial.ascii;
 
 import com.simon.modbus4j.ModbusSlaveSet;
 import com.simon.modbus4j.base.BaseRequestHandler;
@@ -7,19 +7,19 @@ import com.simon.modbus4j.msg.ModbusResponse;
 import com.simon.modbus4j.sero.messaging.IncomingRequestMessage;
 import com.simon.modbus4j.sero.messaging.OutgoingResponseMessage;
 
-public class EncapRequestHandler extends BaseRequestHandler {
+public class AsciiRequestHandler extends BaseRequestHandler {
 
-    public EncapRequestHandler(ModbusSlaveSet slave){
+    public AsciiRequestHandler(ModbusSlaveSet slave){
         super(slave);
     }
 
     public OutgoingResponseMessage handleRequest(IncomingRequestMessage req) throws Exception{
-        EncapMessageRequest tcpRequest = (EncapMessageRequest) req;
-        ModbusRequest request = tcpRequest.getModbusRequest();
+        AsciiMessageRequest asciiRequest = (AsciiMessageRequest) req;
+        ModbusRequest request = asciiRequest.getModbusRequest();
         ModbusResponse response = handleRequestImpl(request);
         if(response == null){
             return null;
         }
-        return new EncapMessageResponse(response);
+        return new AsciiMessageResponse(response);
     }
 }

@@ -19,6 +19,6 @@ public class ReadCoilsResponse extends ReadResponse {
 
     @Override
     public String toString(){
-        return "ReadCoilsResponse [exceptionCode=" + exceptionCode + ", slaveId=" + slaveId + ", getFunctionCode()=" + getFunctionCode() + ", isException()=" + isException() + ",getExceptionMessage()=" + getExceptionMessage() + ", getExceptionCode()=" + getExceptioncode() + ", toString()=" + super.toString(false) + "]";
+        return "ReadCoilsResponse [exceptionCode=" + exceptionCode + ", slaveId=" + slaveId + ", getFunctionCode()=" + getFunctionCode() + ", isException()=" + isException() + ",getExceptionMessage()=" + getExceptionMessage() + ", getExceptionCode()=" + getExceptionCode() + ", toString()=" + super.toString(false) + "]";
     }
 }

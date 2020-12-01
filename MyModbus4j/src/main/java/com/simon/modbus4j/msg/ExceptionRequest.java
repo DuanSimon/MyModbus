@@ -3,6 +3,7 @@ package com.simon.modbus4j.msg;
 import com.simon.modbus4j.Modbus;
 import com.simon.modbus4j.ProcessImage;
 import com.simon.modbus4j.exception.ModbusTransportException;
+import com.simon.modbus4j.sero.ShouldNeverHappenException;
 import com.simon.modbus4j.sero.util.queue.ByteQueue;
 
 public class ExceptionRequest extends ModbusRequest {

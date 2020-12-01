@@ -2,8 +2,14 @@ package com.simon.modbus4j.serial.ascii;
 
 import com.simon.modbus4j.exception.ModbusInitException;
 import com.simon.modbus4j.exception.ModbusTransportException;
+import com.simon.modbus4j.msg.ModbusRequest;
+import com.simon.modbus4j.msg.ModbusResponse;
+import com.simon.modbus4j.serial.SerialMaster;
 import com.simon.modbus4j.serial.SerialPortWrapper;
 import com.simon.modbus4j.serial.SerialWaitingRoomKeyFactory;
+import com.simon.modbus4j.sero.messaging.MessageControl;
+import com.simon.modbus4j.sero.messaging.StreamTransport;
+import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 public class AsciiMaster extends SerialMaster {
@@ -11,7 +17,7 @@ public class AsciiMaster extends SerialMaster {
 
     private MessageControl conn;
 
-    pbulic AsciiMaster(SerialPortWrapper wrapper){
+    public AsciiMaster(SerialPortWrapper wrapper){
         super(wrapper, true);
     }
 

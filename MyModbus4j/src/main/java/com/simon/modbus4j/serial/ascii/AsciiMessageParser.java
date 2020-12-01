@@ -1,20 +1,20 @@
-package com.simon.modbus4j.ip.encap;
+package com.simon.modbus4j.serial.ascii;
 
 import com.simon.modbus4j.base.BaseMessageParser;
 import com.simon.modbus4j.sero.messaging.IncomingMessage;
 import com.simon.modbus4j.sero.util.queue.ByteQueue;
 
-public class EncapMessageParser extends BaseMessageParser {
+public class AsciiMessageParser extends BaseMessageParser {
 
-    public EncapMessageParser(boolean master){
+    public AsciiMessageParser(boolean master){
         super(master);
     }
 
     @Override
     protected IncomingMessage parseMessageImpl(ByteQueue queue) throws Exception{
         if(master){
-            return EncapMessageResponse.createEncapMessageResponse(queue);
+            return AsciiMessageResponse.createAsciiMessageResponse(queue);
         }
-        return EncapMessageRequest.createEncapMessageRequest(queue);
+        return AsciiMessageRequest.createAsciiMessageRequest(queue);
     }
 }

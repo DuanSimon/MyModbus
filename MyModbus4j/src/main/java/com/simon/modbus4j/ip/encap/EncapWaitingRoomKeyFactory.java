@@ -1,5 +1,10 @@
 package com.simon.modbus4j.ip.encap;
 
+import com.simon.modbus4j.ip.IpMessage;
+import com.simon.modbus4j.msg.ModbusMessage;
+import com.simon.modbus4j.sero.messaging.IncomingResponseMessage;
+import com.simon.modbus4j.sero.messaging.OutgoingRequestMessage;
+import com.simon.modbus4j.sero.messaging.WaitingRoomKey;
 import com.simon.modbus4j.sero.messaging.WaitingRoomKeyFactory;
 
 public class EncapWaitingRoomKeyFactory implements WaitingRoomKeyFactory {
@@ -10,7 +15,7 @@ public class EncapWaitingRoomKeyFactory implements WaitingRoomKeyFactory {
     }
 
     @Override
-    public WaitingRoomKey createWaitingRoomKey(IncomingresponseMessage response){
+    public WaitingRoomKey createWaitingRoomKey(IncomingResponseMessage response){
         return createWaitingRoomKey(((IpMessage) response).getModbusMessage());
     }
 

@@ -7,7 +7,7 @@ public class ModbusInitException extends Exception {
         super();
     }
 
-    public ModbusInitException(String name, Throwable cause) {
+    public ModbusInitException(String message, Throwable cause) {
         super(message, cause);
     }
 

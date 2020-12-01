@@ -1,4 +1,4 @@
-package com.simon.modbus4j.serial.rtu;
+package com.simon.modbus4j.serial.ascii;
 
 import com.simon.modbus4j.exception.ModbusInitException;
 import com.simon.modbus4j.serial.SerialPortWrapper;
@@ -7,11 +7,10 @@ import com.simon.modbus4j.sero.messaging.MessageControl;
 
 import java.io.IOException;
 
-public class RtuSlave extends SerialSlave {
-    //Runtime fields
+public class AsciiSlave extends SerialSlave {
     private MessageControl conn;
 
-    public RtuSlave(SerialPortWrapper wrapper){
+    public AsciiSlave(SerialPortWrapper wrapper){
         super(wrapper);
     }
 
@@ -19,16 +18,16 @@ public class RtuSlave extends SerialSlave {
     public void start() throws ModbusInitException{
         super.start();
 
-        RtuMessageParser rtumessageParser = new RtuMessageParser(false);
-        RtuRequestHandler rtuRequestHandler = new RtuRequestHandler(this);
+        AsciiMessageParser asciiMessageParser = new AsciiMessageParser(false);
+        AsciiRequestHandler asciiRequestHandler = new AsciiRequestHandler(this);
 
         conn = new MessageControl();
         conn.setExceptionHandler(getExceptionHandler());
 
-        try {
-            conn.start(transport, rtuMessageParser, rtuRequestHandler, null);
-            transport.start("Modbus RTU slave");
-        }catch(IOException e){
+        try{
+            conn.start(transport, asciiMessageParse, asciiRequestHandler, null);
+            transport.start("Modbus ASCII slave");
+        }catch (IOException e){
             throw new ModbusInitException(e);
         }
     }

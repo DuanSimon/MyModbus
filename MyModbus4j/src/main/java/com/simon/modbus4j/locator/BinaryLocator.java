@@ -3,6 +3,7 @@ package com.simon.modbus4j.locator;
 import com.simon.modbus4j.base.ModbusUtils;
 import com.simon.modbus4j.code.DataType;
 import com.simon.modbus4j.code.RegisterRange;
+import com.simon.modbus4j.exception.ModbusIdException;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class BinaryLocator extends BaseLocator<Boolean> {

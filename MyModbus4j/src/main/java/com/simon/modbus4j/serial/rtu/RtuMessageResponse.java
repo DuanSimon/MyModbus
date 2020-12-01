@@ -1,7 +1,11 @@
 package com.simon.modbus4j.serial.rtu;
 
+import com.simon.modbus4j.base.ModbusUtils;
 import com.simon.modbus4j.exception.ModbusTransportException;
 import com.simon.modbus4j.msg.ModbusResponse;
+import com.simon.modbus4j.sero.messaging.IncomingResponseMessage;
+import com.simon.modbus4j.sero.messaging.OutgoingRequestMessage;
+import com.simon.modbus4j.sero.util.queue.ByteQueue;
 
 public class RtuMessageResponse extends RtuMessage implements OutgoingRequestMessage, IncomingResponseMessage {
     static RtuMessageResponse createRtuMessageResponse(ByteQueue queue) throws ModbusTransportException{

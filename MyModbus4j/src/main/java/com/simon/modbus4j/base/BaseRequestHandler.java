@@ -1,6 +1,8 @@
 package com.simon.modbus4j.base;
 
 import com.simon.modbus4j.ModbusSlaveSet;
+import com.simon.modbus4j.ProcessImage;
+import com.simon.modbus4j.exception.ModbusTransportException;
 import com.simon.modbus4j.msg.ModbusRequest;
 import com.simon.modbus4j.msg.ModbusResponse;
 import com.simon.modbus4j.sero.messaging.RequestHandler;
@@ -13,7 +15,7 @@ abstract public class BaseRequestHandler implements RequestHandler {
         this.slave = slave;
     }
 
-    protected ModbusResponse handleRequestImpl(ModbusRequest request) throws ModbusTransportException{
+    protected ModbusResponse handleRequestImpl(ModbusRequest request) throws ModbusTransportException {
 
         request.validate(slave);
 
@@ -23,7 +25,7 @@ abstract public class BaseRequestHandler implements RequestHandler {
         if(slaveId == 0){
             //Broadcast message. Send to all process images.
             for (ProcessImage processImage :
-                    slave.getProcessImage()) {
+                    slave.getProcessImages()) {
                 request.handle(processImage);
             }
             return null;

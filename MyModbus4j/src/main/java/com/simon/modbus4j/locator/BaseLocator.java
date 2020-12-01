@@ -4,6 +4,7 @@ import com.simon.modbus4j.base.ModbusUtils;
 import com.simon.modbus4j.base.RangeAndOffset;
 import com.simon.modbus4j.code.DataType;
 import com.simon.modbus4j.code.RegisterRange;
+import com.simon.modbus4j.exception.ModbusIdException;
 import com.simon.modbus4j.exception.ModbusTransportException;
 
 import java.nio.charset.Charset;

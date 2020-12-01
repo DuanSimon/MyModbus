@@ -30,15 +30,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc4a7f44-6aa2-4734-99bf-3d7697c73713" name="默认的" comment="rtu,ascii未编写">
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiMaster.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessageParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessageRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessageResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuRequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuSlave.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiMessageParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiMessageRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiMessageResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiRequestHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiSlave.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/BaseMessageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/BaseMessageParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/BaseRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/BaseRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/KeyedModbusLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/KeyedModbusLocator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/ReadFunctionGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/ReadFunctionGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/exception/ModbusInitException.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/exception/ModbusInitException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/IpMessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/IpMessageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapWaitingRoomKeyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapWaitingRoomKeyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/listener/TcpListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/listener/TcpListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/tcp/TcpMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/tcp/TcpMaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/tcp/TcpSlave.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/tcp/TcpSlave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/udp/UdpMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/udp/UdpMaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/udp/UdpSlave.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/udp/UdpSlave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/locator/BaseLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/locator/BaseLocator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/locator/BinaryLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/locator/BinaryLocator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/msg/ExceptionRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/msg/ExceptionRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/msg/ReadCoilsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/msg/ReadCoilsResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiMaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessageParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessageRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuSlave.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuSlave.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

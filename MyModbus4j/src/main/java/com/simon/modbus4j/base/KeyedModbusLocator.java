@@ -1,5 +1,7 @@
 package com.simon.modbus4j.base;
 
+import com.simon.modbus4j.ExceptionResult;
+import com.simon.modbus4j.code.ExceptionCode;
 import com.simon.modbus4j.locator.BaseLocator;
 
 public class KeyedModbusLocator<K> {

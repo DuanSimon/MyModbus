@@ -42,7 +42,7 @@ public class RtuMaster extends SerialMaster {
     protected void openConnection(MessageControl toClose) throws Exception{
         super.openConnection(toClose);
 
-        RtuMessageParse rtuMessageParse = new RtuMessageParser(true);
+        RtuMessageParser rtuMessageParser = new RtuMessageParser(true);
         this.conn = getMessageControl();
         this.conn.start(transport, rtuMessageParser, null, new SerialWaitingRoomKeyFactory());
         if(getePoll() == null){

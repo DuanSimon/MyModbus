@@ -7,9 +7,13 @@ import com.simon.modbus4j.exception.ModbusTransportException;
 import com.simon.modbus4j.ip.IpMessageResponse;
 import com.simon.modbus4j.ip.IpParameters;
 import com.simon.modbus4j.ip.encap.EncapMessageParser;
+import com.simon.modbus4j.ip.encap.EncapMessageRequest;
 import com.simon.modbus4j.ip.encap.EncapWaitingRoomKeyFactory;
 import com.simon.modbus4j.ip.xa.XaMessageParser;
+import com.simon.modbus4j.ip.xa.XaMessageRequest;
 import com.simon.modbus4j.ip.xa.XaWaitingRoomKeyFactory;
+import com.simon.modbus4j.msg.ModbusRequest;
+import com.simon.modbus4j.msg.ModbusResponse;
 import com.simon.modbus4j.sero.messaging.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -19,6 +23,7 @@ import java.net.BindException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
+import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -121,7 +126,7 @@ public class TcpListener extends ModbusMaster {
     }
 
     @Override
-    synchronized public ModbusResponse sendImpl(ModbudRequest request) throws ModbusTransportException{
+    synchronized public ModbusResponse sendImpl(ModbusRequest request) throws ModbusTransportException{
 
         if(!connected){
             LOG.debug("No connection in Port: " + ipParameters.getPort());
@@ -148,7 +153,7 @@ public class TcpListener extends ModbusMaster {
             StringBuilder sb = new StringBuilder();
             for (byte b :
                     Arrays.copyOfRange(ipRequest.getMessageData(), 0, ipRequest.getMessageData().length)) {
-                sb.append(string.format("%02X ", b));
+                sb.append(String.format("%02X ", b));
             }
             LOG.debug("Xa Request: " + sb.toString());
         }

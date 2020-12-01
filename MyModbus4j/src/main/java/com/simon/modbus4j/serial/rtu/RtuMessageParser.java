@@ -1,6 +1,10 @@
 package com.simon.modbus4j.serial.rtu;
 
-public class RtuMessageParser extends BaseMessageParser{
+import com.simon.modbus4j.base.BaseMessageParser;
+import com.simon.modbus4j.sero.messaging.IncomingMessage;
+import com.simon.modbus4j.sero.util.queue.ByteQueue;
+
+public class RtuMessageParser extends BaseMessageParser {
 
     public RtuMessageParser(boolean master){
         super(master);

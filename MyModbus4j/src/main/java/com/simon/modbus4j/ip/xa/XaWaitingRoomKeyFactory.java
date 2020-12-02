@@ -1,5 +1,9 @@
 package com.simon.modbus4j.ip.xa;
 
+import com.simon.modbus4j.msg.ModbusMessage;
+import com.simon.modbus4j.sero.messaging.IncomingResponseMessage;
+import com.simon.modbus4j.sero.messaging.OutgoingRequestMessage;
+import com.simon.modbus4j.sero.messaging.WaitingRoomKey;
 import com.simon.modbus4j.sero.messaging.WaitingRoomKeyFactory;
 
 public class XaWaitingRoomKeyFactory implements WaitingRoomKeyFactory {
@@ -18,7 +22,7 @@ public class XaWaitingRoomKeyFactory implements WaitingRoomKeyFactory {
         return new XaWaitingRoomKey(msg.getTransactionId(), msg.getModbusMessage());
     }
 
-    class XaWatingRoomKey implements WaitingRoomKey{
+    class XaWaitingRoomKey implements WaitingRoomKey {
         private final int transactionId;
         private final int slaveId;
         private final byte functionCode;

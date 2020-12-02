@@ -15,6 +15,6 @@ public class XaMessageParser extends BaseMessageParser {
         if(master){
             return XaMessageResponse.createXaMessageResponse(queue);
         }
-        return XaMessageRequest.CreateXaMessageRequest(queue);
+        return XaMessageRequest.createXaMessageRequest(queue);
     }
 }

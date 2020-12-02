@@ -3,14 +3,15 @@ package com.simon.modbus4j.locator;
 import com.simon.modbus4j.code.DataType;
 import com.simon.modbus4j.code.RegisterRange;
 import com.simon.modbus4j.exception.IllegalDataTypeException;
-import sun.security.util.ArrayUtil;
+import org.apache.commons.lang3.ArrayUtils;
+
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 
-public class NumericLocator extends BaseLocator<Number> {
-    private static final int[] DATA_TYPE = {
+public class NumericLocator extends com.simon.modbus4j.locator.BaseLocator<Number> {
+    private static final int[] DATA_TYPES = {
             DataType.TWO_BYTE_INT_UNSIGNED,
             DataType.TWO_BYTE_INT_SIGNED,
             DataType.TWO_BYTE_INT_UNSIGNED_SWAPPED,
@@ -56,7 +57,7 @@ public class NumericLocator extends BaseLocator<Number> {
         if (range == RegisterRange.COIL_STATUS || range == RegisterRange.INPUT_STATUS) {
             throw new IllegalDataTypeException("Only binary values can be read from Coil and Input ranges");
         }
-        if (!ArrayUtil.contains(DATA_TYPES, dataType)) {
+        if (!ArrayUtils.contains(DATA_TYPES, dataType)) {
             throw new IllegalDataTypeException("Invalid data type");
         }
     }

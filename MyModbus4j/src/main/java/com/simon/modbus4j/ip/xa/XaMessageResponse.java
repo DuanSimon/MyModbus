@@ -2,7 +2,9 @@ package com.simon.modbus4j.ip.xa;
 
 import com.simon.modbus4j.base.ModbusUtils;
 import com.simon.modbus4j.exception.ModbusTransportException;
+import com.simon.modbus4j.ip.IpMessageResponse;
 import com.simon.modbus4j.msg.ModbusResponse;
+import com.simon.modbus4j.sero.util.queue.ByteQueue;
 
 public class XaMessageResponse extends XaMessage implements IpMessageResponse {
 

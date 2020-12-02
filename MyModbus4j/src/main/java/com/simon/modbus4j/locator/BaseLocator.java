@@ -1,5 +1,7 @@
 package com.simon.modbus4j.locator;
 
+import java.nio.charset.Charset;
+
 import com.simon.modbus4j.base.ModbusUtils;
 import com.simon.modbus4j.base.RangeAndOffset;
 import com.simon.modbus4j.code.DataType;
@@ -7,7 +9,7 @@ import com.simon.modbus4j.code.RegisterRange;
 import com.simon.modbus4j.exception.ModbusIdException;
 import com.simon.modbus4j.exception.ModbusTransportException;
 
-import java.nio.charset.Charset;
+
 
 abstract public class BaseLocator<T> {
     public static BaseLocator<Boolean> coilStatus(int slaveId, int offset) {
@@ -50,8 +52,7 @@ abstract public class BaseLocator<T> {
         return createLocator(slaveId, range, offset, dataType, bit, registerCount, StringLocator.ASCII);
     }
 
-    public static BaseLocator<?> createLocator(int slaveId, int range, int offset, int dataType, int bit,
-                                               int registerCount, Charset charset) {
+    public static BaseLocator<?> createLocator(int slaveId, int range, int offset, int dataType, int bit, int registerCount, Charset charset) {
         if (dataType == DataType.BINARY) {
             if (BinaryLocator.isBinaryRange(range)) {
                 return new BinaryLocator(slaveId, range, offset);

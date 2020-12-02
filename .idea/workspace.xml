@@ -29,41 +29,32 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc4a7f44-6aa2-4734-99bf-3d7697c73713" name="默认的" comment="rtu,ascii未编写">
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiMessageParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiMessageRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiMessageResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiRequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiSlave.java" afterDir="false" />
+    <list default="true" id="fc4a7f44-6aa2-4734-99bf-3d7697c73713" name="默认的" comment="rtu部分缺少内容">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commonts_lang3_3_7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/BaseMessageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/BaseMessageParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/BaseRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/BaseRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/KeyedModbusLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/KeyedModbusLocator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/ReadFunctionGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/base/ReadFunctionGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/exception/ModbusInitException.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/exception/ModbusInitException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/IpMessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/IpMessageResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapMessageResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/MyModbus4j.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/MyModbus4j.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapWaitingRoomKeyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/encap/EncapWaitingRoomKeyFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/listener/TcpListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/listener/TcpListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/tcp/TcpMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/tcp/TcpMaster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/tcp/TcpSlave.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/tcp/TcpSlave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/udp/UdpMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/udp/UdpMaster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/udp/UdpSlave.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/udp/UdpSlave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaMessageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaMessageParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaMessageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaMessageRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaMessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaMessageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaWaitingRoomKeyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/ip/xa/XaWaitingRoomKeyFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/locator/BaseLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/locator/BaseLocator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/locator/BinaryLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/locator/BinaryLocator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/msg/ExceptionRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/msg/ExceptionRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/msg/ReadCoilsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/msg/ReadCoilsResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiMaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/ascii/AsciiMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessageParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessageRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuMessageResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/locator/NumericLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/locator/NumericLocator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/locator/StringLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/locator/StringLocator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/msg/ReadResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/msg/ReadResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/SerialMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/SerialMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/SerialSlave.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/SerialSlave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/SerialWaitingRoomKeyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/SerialWaitingRoomKeyFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuSlave.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/serial/rtu/RtuSlave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/io/StreamUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyModbus4j/src/main/java/com/simon/modbus4j/sero/io/StreamUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +75,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.1\plugins\maven\lib\maven3" />
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2\plugins\maven\lib\maven3" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -160,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606400127922</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="rtu部分缺少内容">
+      <created>1606816872646</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1606816872646</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -203,7 +201,8 @@
     <MESSAGE value="补全TcpListener" />
     <MESSAGE value="补全SerialMaster" />
     <MESSAGE value="rtu,ascii未编写" />
-    <option name="LAST_COMMIT_MESSAGE" value="rtu,ascii未编写" />
+    <MESSAGE value="rtu部分缺少内容" />
+    <option name="LAST_COMMIT_MESSAGE" value="rtu部分缺少内容" />
   </component>
   <component name="WindowStateProjectService">
     <state x="958" y="118" key="#com.intellij.ide.util.MemberChooser" timestamp="1603982599049">
@@ -241,11 +240,11 @@
     <state x="153" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603886111900" />
     <state x="153" y="0" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1603891501283" />
     <state x="191" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604483537709" />
-    <state x="442" y="200" key="Vcs.Push.Dialog.v2" timestamp="1606400136025">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1606816881258">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1080.0.1080.1880@0.0.1536.824" timestamp="1606400136025" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605779674148" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1606816881258" />
     <state x="582" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606546448840">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

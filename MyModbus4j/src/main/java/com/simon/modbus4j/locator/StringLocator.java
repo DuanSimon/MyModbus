@@ -17,7 +17,7 @@ public class StringLocator extends BaseLocator<String> {
         this(slaveId, range, offset, dataType, registerCount, ASCII);
     }
 
-    public StringLocator(int slaveId, int range, int offset, int dataType, int registerCount, Character charset) {
+    public StringLocator(int slaveId, int range, int offset, int dataType, int registerCount, Charset charset) {
         super(slaveId, range, offset);
         this.dataType = dataType;
         this.registerCount = registerCount;
@@ -75,4 +75,90 @@ public class StringLocator extends BaseLocator<String> {
         }
         throw new RuntimeException("Unsupported data type: " + dataType);
     }
+
+    @Override
+    public short[] valueToShorts(String value){
+        short[] result = new short[registerCount];
+        int resultByteLen = registerCount * 2;
+
+        int length;
+        if(value != null){
+            byte[] bytes = value.getBytes(charset);
+
+            length = resultByteLen;
+            if(length > bytes.length){
+                length = bytes.length;
+            }
+
+            for (int i = 0; i < length; i++) {
+                setByte(result, i, bytes[i] & 0xff);
+            }
+        }else {
+            length = 0;
+        }
+        if(dataType == DataType.CHAR){
+            //Pad the rest with spaces
+            for (int i = length; i < resultByteLen; i++) {
+                setByte(result, i, 0x20);
+            }
+        }else if(dataType == DataType.VARCHAR){
+            if(length >= resultByteLen){
+                //Ensure the last byte is a null terminator.
+                result[registerCount - 1] &= 0xff00;
+            }else{
+                //Pad the rest with null.
+                for (int i = length; i < resultByteLen; i++) {
+                    setByte(result, i, 0);
+                }
+            }
+        }else{
+            throw new RuntimeException("Unsupported data type: " + dataType);
+        }
+        return result;
+    }
+
+    private void setByte(short[] s, int byteIndex, int value){
+        if(byteIndex % 2 == 0){
+            s[byteIndex / 2] |= value << 8;
+        }else{
+            s[byteIndex / 2] |= value;
+        }
+    }
+    //
+    //    public static void main(String[] args) {
+    //        StringLocator l1 = new StringLocator(1, RegisterRange.HOLDING_REGISTER, 0, DataType.CHAR, 4);
+    //        StringLocator l2 = new StringLocator(1, RegisterRange.HOLDING_REGISTER, 0, DataType.VARCHAR, 4);
+    //
+    //        short[] s;
+    //
+    //        s = l1.valueToShorts("abcdefg");
+    //        System.out.println(new String(l1.bytesToValue(toBytes(s), 0)));
+    //
+    //        s = l1.valueToShorts("abcdefgh");
+    //        System.out.println(new String(l1.bytesToValue(toBytes(s), 0)));
+    //
+    //        s = l1.valueToShorts("abcdefghi");
+    //        System.out.println(new String(l1.bytesToValue(toBytes(s), 0)));
+    //
+    //        s = l2.valueToShorts("abcdef");
+    //        System.out.println(new String(l2.bytesToValue(toBytes(s), 0)));
+    //
+    //        s = l2.valueToShorts("abcdefg");
+    //        System.out.println(new String(l2.bytesToValue(toBytes(s), 0)));
+    //
+    //        s = l2.valueToShorts("abcdefgh");
+    //        System.out.println(new String(l2.bytesToValue(toBytes(s), 0)));
+    //
+    //        s = l2.valueToShorts("abcdefghi");
+    //        System.out.println(new String(l2.bytesToValue(toBytes(s), 0)));
+    //    }
+    //
+    //    private static byte[] toBytes(short[] s) {
+    //        byte[] b = new byte[s.length * 2];
+    //        for (int i = 0; i < s.length; i++) {
+    //            b[i * 2] = (byte) ((s[i] >> 8) & 0xff);
+    //            b[i * 2 + 1] = (byte) (s[i] & 0xff);
+    //        }
+    //        return b;
+    //    }
 }

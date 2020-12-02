@@ -1,10 +1,11 @@
 package com.simon.modbus4j.ip.xa;
 
 import com.simon.modbus4j.base.ModbusUtils;
+import com.simon.modbus4j.ip.IpMessage;
 import com.simon.modbus4j.msg.ModbusMessage;
 import com.simon.modbus4j.sero.util.queue.ByteQueue;
 
-public class XaMessage IpMessage {
+public class XaMessage extends IpMessage {
 
     protected final int transactionId;
 

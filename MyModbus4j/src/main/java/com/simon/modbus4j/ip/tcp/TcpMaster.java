@@ -99,9 +99,9 @@ public class TcpMaster extends ModbusMaster {
             }
             ipRequest = new XaMessageRequest(request, getNextTransactionId());
         }
-        if (LOG.isDebugEnable()) {
+        if (LOG.isDebugEnabled()) {
             StringBuilder sb = new StringBuilder();
-            for (byte b : Arrays.copyOfRange(ipRequest.getMessgeData(), 0, ipRequest.getMessageData().length)) {
+            for (byte b : Arrays.copyOfRange(ipRequest.getMessageData(), 0, ipRequest.getMessageData().length)) {
                 sb.append(String.format("%02X ", b));
             }
             LOG.debug("Encap Request: " + sb.toString());
@@ -118,7 +118,7 @@ public class TcpMaster extends ModbusMaster {
             }
             if (LOG.isDebugEnabled()) {
                 StringBuilder sb = new StringBuilder();
-                for (byte b : Arrays.copyOfRange(ipResponse.getMessageData(), 0, ipResponse.getMesageData().length)) {
+                for (byte b : Arrays.copyOfRange(ipResponse.getMessageData(), 0, ipResponse.getMessageData().length)) {
                     sb.append(String.format("%02X ", b));
                 }
                 LOG.debug("Response: " + sb.toString());
@@ -128,26 +128,27 @@ public class TcpMaster extends ModbusMaster {
             LOG.debug("Exception: " + e.getMessage() + " " + e.getLocalizedMessage());
             if (keepAlive) {
                 LOG.debug("KeepAlive - reconnect!");
-            }
-            try {
-                LOG.debug("Modbus4J: Keep_alive connection may have been reset. Attempting to re-open");
-                openConnection();
-                ipResponse = (IpMessageResponse) conn.send(ipRequest);
-                if (ipResponse == null) {
-                    return null;
-                }
-                if (LOG.isDebugEnabled()) {
-                    StringBuilder sb = new StringBuilder();
-                    for (byte b : Arrays.copyOfRange(ipResponse.getMessageData(), 0, ipResponse.getMessgeData().length)) {
-                        sb.append(String.format("%02X ", b));
+
+                try {
+                    LOG.debug("Modbus4J: Keep_alive connection may have been reset. Attempting to re-open");
+                    openConnection();
+                    ipResponse = (IpMessageResponse) conn.send(ipRequest);
+                    if (ipResponse == null) {
+                        return null;
                     }
-                    LOG.debug("Response: " + sb.toString());
+                    if (LOG.isDebugEnabled()) {
+                        StringBuilder sb = new StringBuilder();
+                        for (byte b : Arrays.copyOfRange(ipResponse.getMessageData(), 0, ipResponse.getMessageData().length)) {
+                            sb.append(String.format("%02X ", b));
+                        }
+                        LOG.debug("Response: " + sb.toString());
+                    }
+                    return ipResponse.getModbusResponse();
+                } catch (Exception e2) {
+                    closeConnection();
+                    LOG.debug("Exception: " + e2.getMessage() + " " + e2.getLocalizedMessage());
+                    throw new ModbusTransportException(e2, request.getSlaveId());
                 }
-                return ipResponse.getModbusResponse();
-            } catch (Exception e2) {
-                closeConnection();
-                LOG.debug("Exception: " + e2.getMessage() + " " + e2.getLocalizedMessage());
-                throw new ModbusTransportException(e2, request.getSlaveId());
             }
             throw new ModbusTransportException(e, request.getSlaveId());
         } finally {
@@ -217,7 +218,7 @@ public class TcpMaster extends ModbusMaster {
                 socket.close();
             }
         } catch (IOException e) {
-            getExceptionHandler().receivedExceptiong(e);
+            getExceptionHandler().receivedException(e);
         }
 
         conn = null;

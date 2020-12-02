@@ -3,6 +3,7 @@ package com.simon.modbus4j.ip.udp;
 import com.simon.modbus4j.ModbusSlaveSet;
 import com.simon.modbus4j.base.BaseMessageParser;
 import com.simon.modbus4j.base.BaseRequestHandler;
+import com.simon.modbus4j.base.ModbusUtils;
 import com.simon.modbus4j.exception.ModbusInitException;
 import com.simon.modbus4j.ip.encap.EncapMessageParser;
 import com.simon.modbus4j.ip.encap.EncapRequestHandler;
@@ -56,10 +57,10 @@ public class UdpSlave extends ModbusSlaveSet {
             DatagramPacket datagramPacket;
             while(true){
                 datagramPacket = new DatagramPacket(new byte[1028], 1028);
-                datagramSocket.execute(handler);
+                datagramSocket.receive(datagramPacket);
 
                 UdpConnectionHandler handler = new UdpConnectionHandler(datagramPacket);
-                executeService.execute(handler);
+                executorService.execute(handler);
             }
         }catch (IOException e){
             throw new ModbusInitException(e);
@@ -75,7 +76,7 @@ public class UdpSlave extends ModbusSlaveSet {
         executorService.shutdown();
         try {
             executorService.awaitTermination(3, TimeUnit.SECONDS);
-        }catch (InterruptException e){
+        }catch (InterruptedException e){
             getExceptionHandler().receivedException(e);
         }
     }

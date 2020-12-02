@@ -47,7 +47,7 @@ public class TcpListener extends ModbusMaster {
         ipParameters = params;
         connected = false;
         validateResponse = ipParameters.isEncapsulated();
-        if(LOG.idDebugEnabled()){
+        if(LOG.isDebugEnabled()){
             LOG.debug("TcpListenner create! Port: " + ipParameters.getPort());
         }
     }
@@ -57,7 +57,7 @@ public class TcpListener extends ModbusMaster {
         ipParameters = params;
         connected = false;
         this.validateResponse = validateResponse;
-        if(LOG.isDebugEnable()){
+        if(LOG.isDebugEnabled()){
             LOG.debug("TcpListener create! Port: " + ipParameters.getPort());
         }
     }
@@ -113,7 +113,7 @@ public class TcpListener extends ModbusMaster {
         LOG.debug("TCPListener destroyed, Port: " + ipParameters.getPort());
     }
 
-    private void terminateListenner(){
+    private void terminateListener(){
         executorService.shutdown();
         try{
             executorService.awaitTermination(300, TimeUnit.MILLISECONDS);
@@ -162,7 +162,7 @@ public class TcpListener extends ModbusMaster {
         IpMessageResponse ipResponse;
         try {
             //Send data via handler!
-            handler.conn.DEBUD = true;
+            handler.conn.DEBUG = true;
             ipResponse = (IpMessageResponse) handler.conn.send(ipRequest);
             if(ipResponse == null){
                 throw new ModbusTransportException(new Exception("No valid response from slave!"), request.getSlaveId());
@@ -173,6 +173,7 @@ public class TcpListener extends ModbusMaster {
                 sb.append(String.format("%02X ", b));
             }
             LOG.debug("Response: " + sb.toString());
+            return ipResponse.getModbusResponse();
         }catch (Exception e){
             LOG.debug(e.getLocalizedMessage() + ", Port: " + ipParameters.getPort() + ", retries:" + retries);
             if(retries < 10 && !e.getLocalizedMessage().contains("Broken")){
@@ -192,7 +193,7 @@ public class TcpListener extends ModbusMaster {
                 //Close all open connections.
                 if(handler != null){
                     handler.closeConnection();
-                    terminateListenner();
+                    terminateListener();
                 }
 
                 if(!initialized){
@@ -205,7 +206,7 @@ public class TcpListener extends ModbusMaster {
                     startListener();
                 }catch (Exception e2){
                     LOG.warn("Error trying to restart socket" + e2.getLocalizedMessage(),e);
-                    throw new ModbusTransportExcepton(e2, request.getSlaveId());
+                    throw new ModbusTransportException(e2, request.getSlaveId());
                 }
                 retries = 0;
             }
@@ -260,10 +261,10 @@ public class TcpListener extends ModbusMaster {
                     try{
                         serverSocket = new ServerSocket(ipParameters.getPort());
                         LOG.debug("Start Accept on port: " + ipParameters.getPort());
-                        socket = serverSocker.accept();
+                        socket = serverSocket.accept();
                         LOG.info("Connected: " + socket.getInetAddress() + ":" + ipParameters.getPort());
 
-                        if(getePol() != null){
+                        if(getePoll() != null){
                             transport = new EpollStreamTransport(socket.getInputStream(),socket.getOutputStream(), getePoll());
                         }else{
                             transport = new StreamTransport(socket.getInputStream(), socket.getOutputStream());

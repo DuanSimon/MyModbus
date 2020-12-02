@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class TcpSlave extends ModbusSlaveSet {
     private final int port;
@@ -62,7 +63,7 @@ public class TcpSlave extends ModbusSlaveSet {
         try {
             serverSocket.close();
         } catch (IOException e) {
-            getExceptionHandler().receiveException(e);
+            getExceptionHandler().receivedException(e);
         }
 
         synchronized (listConnections) {
@@ -74,9 +75,9 @@ public class TcpSlave extends ModbusSlaveSet {
         }
         executorService.shutdown();
         try {
-            executorService.awaitTermination(3, TimeUtil.SECONDS);
+            executorService.awaitTermination(3, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
-            getExceptionHandler().receiveException(e);
+            getExceptionHandler().receivedException(e);
         }
     }
 
@@ -133,7 +134,7 @@ public class TcpSlave extends ModbusSlaveSet {
             conn.close();
             kill();
             synchronized (listConnections) {
-                return listConnections.remove(this);
+                listConnections.remove(this);
             }
         }
 

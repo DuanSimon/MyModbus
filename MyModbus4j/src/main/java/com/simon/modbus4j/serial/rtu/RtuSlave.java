@@ -19,7 +19,7 @@ public class RtuSlave extends SerialSlave {
     public void start() throws ModbusInitException{
         super.start();
 
-        RtuMessageParser rtumessageParser = new RtuMessageParser(false);
+        RtuMessageParser rtuMessageParser = new RtuMessageParser(false);
         RtuRequestHandler rtuRequestHandler = new RtuRequestHandler(this);
 
         conn = new MessageControl();

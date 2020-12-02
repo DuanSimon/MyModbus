@@ -2,8 +2,8 @@ package com.simon.modbus4j.msg;
 
 import com.simon.modbus4j.base.ModbusUtils;
 import com.simon.modbus4j.exception.ModbusTransportException;
+import com.simon.modbus4j.sero.io.StreamUtils;
 import com.simon.modbus4j.sero.util.queue.ByteQueue;
-import com.sun.xml.internal.ws.util.StreamUtils;
 
 abstract public class ReadResponse extends ModbusResponse {
     private byte[] data;

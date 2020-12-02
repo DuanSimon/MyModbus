@@ -19,15 +19,15 @@ public class EncapWaitingRoomKeyFactory implements WaitingRoomKeyFactory {
         return createWaitingRoomKey(((IpMessage) response).getModbusMessage());
     }
 
-    public WaitingRoomKey createWaitignRoomKey(ModbusMessage msg){
+    public WaitingRoomKey createWaitingRoomKey(ModbusMessage msg){
         return new EncapWaitingRoomKey(msg.getSlaveId(), msg.getFunctionCode());
     }
 
-    class encapWaitingRoomKey implements WaitingRoomKey{
+    class EncapWaitingRoomKey implements WaitingRoomKey{
         private final int slaveId;
         private final byte functionCode;
 
-        public EncapWaitingRoomKey(int slaveID, byte functionCode){
+        public EncapWaitingRoomKey(int slaveId, byte functionCode){
             this.slaveId = slaveId;
             this.functionCode = functionCode;
         }

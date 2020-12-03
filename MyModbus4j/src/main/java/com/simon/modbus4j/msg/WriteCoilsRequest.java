@@ -39,7 +39,7 @@ public class WriteCoilsRequest extends ModbusRequest {
     }
 
     @Override
-    ModbusResponse handImpl(ProcessImage processImage) throws ModbusTransportException{
+    ModbusResponse handleImpl(ProcessImage processImage) throws ModbusTransportException{
         boolean[] bdata = convertToBooleans(data);
         for (int i = 0; i < numberOfBits; i++) {
             processImage.writeCoil(startOffset + i, bdata[i]);
@@ -55,5 +55,13 @@ public class WriteCoilsRequest extends ModbusRequest {
     @Override
     ModbusResponse getResponseInstance(int slaveId) throws ModbusTransportException{
         return new WriteCoilsResponse(slaveId);
+    }
+
+    @Override
+    protected void readRequest(ByteQueue queue){
+        startOffset = ModbusUtils.popUnsignedShort(queue);
+        numberOfBits = ModbusUtils.popUnsignedShort(queue);
+        data = new byte[ModbusUtils.popUnsignedByte(queue)];
+        queue.pop(data);
     }
 }

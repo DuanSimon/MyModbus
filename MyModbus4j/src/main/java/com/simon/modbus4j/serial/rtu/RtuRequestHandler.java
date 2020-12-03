@@ -5,6 +5,7 @@ import com.simon.modbus4j.base.BaseRequestHandler;
 import com.simon.modbus4j.msg.ModbusRequest;
 import com.simon.modbus4j.msg.ModbusResponse;
 import com.simon.modbus4j.sero.messaging.IncomingMessage;
+import com.simon.modbus4j.sero.messaging.IncomingRequestMessage;
 import com.simon.modbus4j.sero.messaging.OutgoingResponseMessage;
 
 public class RtuRequestHandler extends BaseRequestHandler {
@@ -13,7 +14,7 @@ public class RtuRequestHandler extends BaseRequestHandler {
         super(slave);
     }
 
-    public OutgoingResponseMessage handleRequest(IncomingMessage req) throws Exception{
+    public OutgoingResponseMessage handleRequest(IncomingRequestMessage req) throws Exception{
         RtuMessageRequest rtuRequest = (RtuMessageRequest) req;
         ModbusRequest request = rtuRequest.getModbusRequest();
         ModbusResponse response = handleRequestImpl(request);

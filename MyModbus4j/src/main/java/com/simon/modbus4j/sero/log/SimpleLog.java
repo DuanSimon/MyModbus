@@ -1,5 +1,9 @@
 package com.simon.modbus4j.sero.log;
 
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class SimpleLog {
     private final PrintWriter out;
     private final SimpleDateFormat sdf = new SimpleDateFormat("MM/dd HH:mm:ss.SSS");
@@ -18,7 +22,7 @@ public class SimpleLog {
         out(message, null);
     }
 
-    public void out(Trowable t){
+    public void out(Throwable t){
         out(null, t);
     }
 
@@ -38,7 +42,7 @@ public class SimpleLog {
 
     public synchronized void out(String message, Throwable t){
         sb.delete(0, sb.length());
-        date.setTime(system.currentTimeMillis());
+        date.setTime(System.currentTimeMillis());
         sb.append(sdf.format(date)).append(" ");
         if(message != null){
             sb.append(message);

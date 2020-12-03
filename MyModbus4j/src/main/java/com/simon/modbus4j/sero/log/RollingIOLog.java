@@ -1,11 +1,19 @@
 package com.simon.modbus4j.sero.log;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 public class RollingIOLog extends BaseIOLog {
 
-    private static final Log LOG = LogFatory.getLog(RollingIOLog.class);
+    private static final Log LOG = LogFactory.getLog(RollingIOLog.class);
 
     //New Members
     protected int fileSize;

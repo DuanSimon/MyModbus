@@ -16,7 +16,7 @@ public class StreamTransportCharSpaced extends StreamTransport {
     @Override
     public void write(byte[] data) throws IOException {
         try {
-            long waited = 0,writeStart,writeEnd,WaitRemaining;
+            long waited = 0,writeStart,writeEnd,waitRemaining;
             for (byte b :
                     data) {
                 writeStart = System.nanoTime();

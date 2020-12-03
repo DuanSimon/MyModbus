@@ -25,7 +25,7 @@ public class AsciiSlave extends SerialSlave {
         conn.setExceptionHandler(getExceptionHandler());
 
         try{
-            conn.start(transport, asciiMessageParse, asciiRequestHandler, null);
+            conn.start(transport, asciiMessageParser, asciiRequestHandler, null);
             transport.start("Modbus ASCII slave");
         }catch (IOException e){
             throw new ModbusInitException(e);

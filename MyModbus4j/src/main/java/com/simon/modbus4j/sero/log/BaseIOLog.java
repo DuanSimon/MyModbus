@@ -1,5 +1,7 @@
 package com.simon.modbus4j.sero.log;
 
+import com.simon.modbus4j.sero.io.NullWriter;
+import com.simon.modbus4j.sero.io.StreamUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -41,7 +43,7 @@ public abstract class BaseIOLog {
     }
 
     public void input(byte[] b){
-        log(true, 0, b.length);
+        log(true, b,0, b.length);
     }
 
     public void input(byte[] b, int pos, int len){
@@ -67,7 +69,7 @@ public abstract class BaseIOLog {
         date.setTime(System.currentTimeMillis());
         sb.append(sdf.format(date)).append(" ");
         sb.append(input ? "I" : "O").append(" ");
-        sb.append(StringUtils.dumpHex(b, pos, len));
+        sb.append(StreamUtils.dumpHex(b, pos, len));
         out.println(sb.toString());
         out.flush();
     }

@@ -1,5 +1,11 @@
 package com.simon.modbus4j.sero.messaging;
 
+import com.simon.modbus4j.sero.epoll.InputStreamEPollWrapper;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 public class EpollStreamTransportCharSpaced extends EpollStreamTransport {
 
     private final long charSpacing;
@@ -12,10 +18,10 @@ public class EpollStreamTransportCharSpaced extends EpollStreamTransport {
     }
 
     @Override
-    public void write(byte[] data) throws IOException{
+    public void write(byte[] data) throws IOException {
 
         try {
-            long waited = 0, writeStart, writeEnd, waitRemaing;
+            long waited = 0, writeStart, writeEnd, waitRemaining;
             for (byte b :
                     data) {
                 writeStart = System.nanoTime();
@@ -42,8 +48,8 @@ public class EpollStreamTransportCharSpaced extends EpollStreamTransport {
                 writeEnd = System.nanoTime();
                 waited = writeEnd - writeStart;
                 if(waited < this.charSpacing){
-                    waitRmaining = this.charSpacing - waited;
-                    Thread.sleep(waitRemaing / 1000000, (int)(waitRemainign % 1000000));
+                    waitRemaining = this.charSpacing - waited;
+                    Thread.sleep(waitRemaining / 1000000, (int)(waitRemaining % 1000000));
                 }
             }
         }catch (Exception e){

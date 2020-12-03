@@ -1,6 +1,7 @@
 package com.simon.modbus4j.sero.messaging;
 
 
+import com.simon.modbus4j.sero.io.StreamUtils;
 import com.simon.modbus4j.sero.log.BaseIOLog;
 import com.simon.modbus4j.sero.messaging.DataConsumer;
 import com.simon.modbus4j.sero.timer.SystemTimeSource;
@@ -128,7 +129,7 @@ public class MessageControl implements DataConsumer {
         return response;
     }
 
-    public void send(SnmpOutgoingRequestMessage response) throws IOException {
+    public void send(OutgoingResponseMessage response) throws IOException {
         write(response.getMessageData());
     }
 
@@ -162,7 +163,7 @@ public class MessageControl implements DataConsumer {
 
                 if (message instanceof IncomingRequestMessage) {
                     if (requestHandler != null) {
-                        OutgoingResponseMessage response = requestHandler.handlerRequest((IncomingRequestMessage) message);
+                        OutgoingResponseMessage response = requestHandler.handleRequest((IncomingRequestMessage) message);
                         if (response != null) {
                             send(response);
                         }

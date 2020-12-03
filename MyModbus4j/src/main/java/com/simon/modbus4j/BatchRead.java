@@ -98,7 +98,7 @@ public class BatchRead<K> {
         int index;
         int endOffset;
         while (locators.size() > 0) {
-            functionGroup = new ReadFucntionGroup<>(locators.remove(0));
+            functionGroup = new ReadFunctionGroup<>(locators.remove(0));
             functionGroups.add(functionGroup);
             endOffset = functionGroup.getStartOffset() + maxCount - 1;
 

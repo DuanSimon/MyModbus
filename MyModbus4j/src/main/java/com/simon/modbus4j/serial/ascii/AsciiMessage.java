@@ -32,6 +32,9 @@ abstract public class AsciiMessage extends SerialMessage {
         queue.pop(asciiBytes);
         ByteQueue msgQueue = new ByteQueue(asciiBytes);
 
+        // Pop off the LRC
+        byte givenLrc = readAscii(queue);
+
         //Pop the end indicator off of the the queue
         queue.pop(END.length);
 
@@ -41,7 +44,7 @@ abstract public class AsciiMessage extends SerialMessage {
         //Check the LRC
         int calcLrc = calculateLRC(msgQueue, 0, msgQueue.size());
         if(calcLrc != givenLrc){
-            throw new ModbusTransportException("LRC mismatch: given=" + (givenLrc & 0xff) = ", calc=" + (calcLrc & 0xff));
+            throw new ModbusTransportException("LRC mismatch: given=" + (givenLrc & 0xff) + ", calc=" + (calcLrc & 0xff));
         }
         return msgQueue;
     }

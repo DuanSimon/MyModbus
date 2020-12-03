@@ -1,6 +1,6 @@
 package com.simon.modbus4j.sero.messaging;
 
-import com.sun.deploy.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -53,7 +53,9 @@ public class InputStreamListener implements Runnable {
                         synchronized (this){
                             try {
                                 wait(readDelay);
-                            }catch (InterruptedException e)
+                            }catch (InterruptedException e){
+
+                            }
                         }
                         continue;
                     }
@@ -71,7 +73,7 @@ public class InputStreamListener implements Runnable {
                 }
             }
         }finally {
-            runnig = false;
+            running = false;
         }
     }
 }

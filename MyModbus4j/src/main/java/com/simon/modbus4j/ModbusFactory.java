@@ -5,11 +5,17 @@ import com.simon.modbus4j.code.RegisterRange;
 import com.simon.modbus4j.exception.ModbusIdException;
 import com.simon.modbus4j.exception.ModbusTransportException;
 import com.simon.modbus4j.ip.IpParameters;
+import com.simon.modbus4j.ip.listener.TcpListener;
 import com.simon.modbus4j.ip.tcp.TcpMaster;
 import com.simon.modbus4j.ip.tcp.TcpSlave;
+import com.simon.modbus4j.ip.udp.UdpMaster;
 import com.simon.modbus4j.ip.udp.UdpSlave;
 import com.simon.modbus4j.msg.*;
 import com.simon.modbus4j.serial.SerialPortWrapper;
+import com.simon.modbus4j.serial.ascii.AsciiMaster;
+import com.simon.modbus4j.serial.ascii.AsciiSlave;
+import com.simon.modbus4j.serial.rtu.RtuMaster;
+import com.simon.modbus4j.serial.rtu.RtuSlave;
 
 public class ModbusFactory {
     public ModbusMaster createRtuMaster(SerialPortWrapper wrapper) {
@@ -25,7 +31,7 @@ public class ModbusFactory {
     }
 
     public ModbusMaster createUdpMaster(IpParameters params) {
-        return new UpdMaster(params);
+        return new UdpMaster(params);
     }
 
     public ModbusMaster createTcpListener(IpParameters params) {
@@ -37,7 +43,7 @@ public class ModbusFactory {
     }
 
     public ModbusSlaveSet createAsciiSlave(SerialPortWrapper wrapper) {
-        return AsciiSlave(wrapper);
+        return new AsciiSlave(wrapper);
     }
 
     public ModbusSlaveSet createTcpSlave(boolean encapsulated) {

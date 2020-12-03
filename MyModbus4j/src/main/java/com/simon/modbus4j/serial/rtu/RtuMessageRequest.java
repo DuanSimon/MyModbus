@@ -9,7 +9,8 @@ import com.simon.modbus4j.sero.util.queue.ByteQueue;
 
 public class RtuMessageRequest extends RtuMessage implements OutgoingRequestMessage, IncomingRequestMessage {
     static RtuMessageRequest createRtuMessageRequest(ByteQueue queue) throws ModbusTransportException {
-        ModbusRequest request = ModbusRequest.createModbusRequest(request);
+        ModbusRequest request = ModbusRequest.createModbusRequest(queue);
+        RtuMessageRequest rtuRequest = new RtuMessageRequest(request);
 
         //Check the CRC
         ModbusUtils.checkCRC(rtuRequest.modbusMessage, queue);

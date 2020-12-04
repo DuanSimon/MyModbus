@@ -9,5 +9,5 @@ public interface Modbus4JInputStreamCallback {
 
     void ioException(IOException e);
 
-    void teminated();
+    void terminated();
 }

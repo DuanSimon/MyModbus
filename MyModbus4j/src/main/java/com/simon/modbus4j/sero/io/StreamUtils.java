@@ -242,7 +242,7 @@ public class StreamUtils {
     }
 
     public static List<String> readLines(File file) throws IOException{
-        List<String> lines = new ArrayList<~>();
+        List<String> lines = new ArrayList<String>();
         BufferedReader in = null;
         try{
             in = new BufferedReader(new FileReader(file));

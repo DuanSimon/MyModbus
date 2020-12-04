@@ -14,7 +14,7 @@ abstract public class BaseMessageParser implements MessageParser {
     @Override
     public IncomingMessage parseMessage(ByteQueue queue) throws Exception {
         try {
-            return parseMessage(queue);
+            return parseMessageImpl(queue);
         } catch (ArrayIndexOutOfBoundsException e) {
             return null;
         }

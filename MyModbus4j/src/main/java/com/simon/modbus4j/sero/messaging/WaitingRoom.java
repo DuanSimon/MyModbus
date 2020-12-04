@@ -3,12 +3,13 @@ package com.simon.modbus4j.sero.messaging;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import java.util.HashMap;
 import java.util.Map;
 
 class WaitingRoom {
     private static final Log LOG = LogFactory.getLog(WaitingRoom.class);
 
-    private final Map<WaitingRoomKey, Member> waitHere = new HashMap<~>();
+    private final Map<WaitingRoomKey, Member> waitHere = new HashMap<WaitingRoomKey, Member>();
 
     private WaitingRoomKeyFactory keyFactory;
 
